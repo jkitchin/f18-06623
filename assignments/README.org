@@ -1,0 +1,29 @@
+#+TITLE: Assignments directory
+#+TODO: TODO | ASSIGNED
+#+OPTIONS: author:nil title:nil
+
+You create problems in org-mode headings.
+
+Then in the heading, type M-x techela-assign
+
+You will be prompted for any required properties that need to be there, and then an ipynb will be created. The notebook will be opened so you can inspect it. The problem will not be visible to students until you commit and push the file.
+
+I recommend you use a [[./problem-database.org]] file to organize all of the problems.
+
+
+* ASSIGNED An example problem
+  CLOSED: [2018-08-22 Wed 15:13]
+  :PROPERTIES:
+  :LABEL:    example
+  :POINTS:   1
+  :TYPE:     homework
+  :RUBRIC:   default
+  :DUEDATE:  2018-08-29 23:59:59
+  :GRADER:   John
+  :END:
+
+Use python to add 5 and 5.
+
+#+BEGIN_SRC ipython
+
+#+END_SRC
