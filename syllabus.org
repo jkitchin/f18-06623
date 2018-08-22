@@ -1,0 +1,185 @@
+#+TITLE: Syllabus for  06-623 Mathematical Modeling of Chemical Engineering Processes
+#+AUTHOR: John Kitchin
+#+DATE: Fall 2018
+
+* Course details
+#+RESULTS: generate-schedule
+
+** Course description
+
+Numerical approaches to solving problems relevant to chemical engineering applications.  In this course, advanced mathematical topics relevant to chemical engineering will be used to solve complex problems.  Topics include linear algebra, nonlinear equation solving, initial value and boundary value problems for solution of differential equations, numerical optimization, probability and stochastic methods.  Focus will be placed on numerical rather than analytical solution to problems.  Unlike a typical numerical methods course, we will also focus on modeling problems, choice of appropriate solution technique, and presentation of solution.
+
+** Course objectives
+
+After completing this course you will able to use Python to solve problems involving the:
+
+*** Use Jupyter notebooks to document scientific programming solutions
+*** Mathematical modeling of engineering systems
+*** Numerical solutions to ordinary differential equations
+*** Numerical solutions to linear algebraic systems
+*** Numerical solutions to nonlinear algebraic systems
+*** Determination of parameters in linear and nonlinear models including uncertainty
+*** Use scientific data to build interpolation or regression models
+
+** Grading
+
+#+caption: Categories and weights for graded
+#+tblname: categories
+| Category | weight |
+|----------+--------|
+| homework |    0.2 |
+| quiz     |   0.25 |
+| exam1    |    0.1 |
+| exam2    |    0.2 |
+| exam3    |   0.25 |
+
+
+Homeworks will be assigned one to three times a week. Each assignment will typically be one problem that should take 30-90 minutes to complete.
+
+Quizzes will be given in class. You should be prepared to take a quiz at any time. These will typically be short, timed problems.
+
+Exams will be scheduled and given during class. You will need your computer for these.
+
+You should bring your computer to class every day. You will need it to follow the lecture notes, to participate in class exercises, and to complete quizzes and exams. You are responsible for ensuring the battery is charged, that you can connect to the internet, and that the software required for the course is installed and working. There will not be any makeup assignments.
+
+Late assignments will automatically lose 50% of their points. Late assignments can only be turned in by email.
+
+*** Grading criteria
+
+You are transitioning into a young professional at this point. That means assignments are done professionally too. In addition to the technical correctness of your work, we will also be assessing the professionalism with which it is presented. Each assignment will show the rubric it will be graded with at the top of the file.
+
+There will be a straight scale (no curve) so you will always know exactly what your grade is at all times. Each problem will be graded considering the approach used, the correctness of the answer, the neatness and quality of presentation, etc... Each category of the rubric will be given a letter grade that indicates your level of performance in that category.
+
+"A" work has the following characteristics: The correct approach is used and the problem is set up correctly. The work is not over-simplified and it is easy to see it is done correctly. Any assumptions made were stated and justified. The answers are correct or only the most trivial errors are present, and were identified by the student. All of the correct units were used. The presentation is complete, clear, logical, neat and in order. Error analysis was performed if appropriate. Any figures used have properly labeled axes with units, and a legend if there is more than one curve. Essentially everything that should have been done was done and done correctly. This is the kind of work an employer wants their employees to do, and the kind of work you will be promoted for doing. You should be proud of this work.
+
+"B" work is deficient in one or more of the properties of "A" work. It might be basically right, but essential details are missing such as units, or the presentation is sloppy. You will get by with this kind of work, but you should not expect to be praised for it.
+
+"C" quality work is deficient in more than two of the properties of "A" work. You would probably not get fired for this kind of work, but you may be notified you need to improve and you should not expect any kind of promotion. This is the bare minimum of expected performance.
+
+"D" work is not considered acceptable performance. Repeat offenses could lead to the loss of your job.
+
+"R" work is totally unacceptable performance. You will be fired.
+
+plus/minus modifiers will be used to provide finer grained grades.
+
+Each problem will have a point value associated with it. The letter grade you get serves as a multiplier on that point value. The multipliers are:
+
+| Lettergrade | multiplier |
+|-------------+------------|
+| A++         |          1 |
+| A+          |       0.95 |
+| A           |        0.9 |
+| A-          |       0.85 |
+| A/B         |        0.8 |
+| B+          |       0.75 |
+| B           |        0.7 |
+| B-          |       0.65 |
+| B/C         |        0.6 |
+| C+          |       0.55 |
+| C           |        0.5 |
+| C-          |       0.45 |
+| C/D         |        0.4 |
+| D+          |       0.35 |
+| D           |        0.3 |
+| D-          |       0.25 |
+| D/R         |        0.2 |
+| R+          |       0.15 |
+| R           |        0.1 |
+| R-          |       0.05 |
+| R- -        |        0.0 |
+
+At the end of the semester I will calculate what fraction of the possible points you have earned, and your grade will be based on this distribution:
+
+| 80% >= grade         | A |
+| 60% >= grade < 80    | B |
+| 40% >= grade < 60    | C |
+| 20% >= grade < 40    | D |
+| grade < 20%          | R |
+
+Note that the standard grade for correct work is an "A", which is not equal to "100%". It is worth 90%, which is well above the cutoff for an A. The A+ and A++ designations are reserved for work that is well above "correct".
+
+** Academic honesty
+
+All work is expected to be your original work. You may work with class members to solve the homework problems, but you must turn in your own solutions. It is cheating to turn in someone else's work as your own. If you use code from the internet or the course notes, you should note this in your solution. Duplicated assignments (e.g. two students who turn in the same work) will receive zeros and a warning. Repeat offenses will be reported as academic dishonesty.
+
+When in doubt, review this website: http://www.cmu.edu/academic-integrity/, and ask if anything is unclear /before/ you get in trouble. In particular see these definitions:
+  - https://www.cmu.edu/student-affairs/ocsi/academic-integrity/definitions.html
+
+** Religious holidays
+
+We will accommodate religious holidays when possible. If your work will be affected by a religious holiday, you must inform Professor Kitchin as early as possible to work out an accommodation in advance.
+
+** Take care of yourself
+
+Do your best to maintain a healthy lifestyle this semester by eating well, exercising, avoiding drugs and alcohol, getting enough sleep and taking some time to relax. This will help you achieve your goals and cope with stress.
+
+All of us benefit from support during times of struggle. You are not alone. There are many helpful resources available on campus and an important part of the college experience is learning how to ask for help. Asking for support sooner rather than later is often helpful.
+
+If you or anyone you know experiences any academic stress, difficult life events, or feelings like anxiety or depression, we strongly encourage you to seek support. Counseling and Psychological Services (CaPS) is here to help: call 412-268-2922 and visit their website at http://www.cmu.edu/counseling/. Consider reaching out to a friend, faculty or family member you trust for help getting connected to the support that can help.
+
+If you or someone you know is feeling suicidal or in danger of self-harm, call someone immediately, day or night:
+
+CaPS: 412-268-2922
+
+Resolve Crisis Network: 888-796-8226
+
+If the situation is life threatening, call the police:
+
+           On campus: CMU Police: 412-268-2323
+
+           Off campus: 911
+
+If you have questions about this or your coursework, please let me know.
+
+
+* Class schedule
+** <2018-08-27 Mon 08:30> Introduction [[./lectures/intro.org]]
+** <2018-08-29 Wed 08:30> Python/Jupyter
+** <2018-09-03 Mon 08:30> *NO CLASS* Labor day
+** <2018-09-05 Wed 08:30> Numerical integration
+** <2018-09-10 Mon 08:30> First order ordinary differential equations
+** <2018-09-12 Wed 08:30> Coupled first-order differential equations
+** <2018-09-17 Mon 08:30> Nth order differential equations
+** <2018-09-19 Wed 08:30> Qualitative methods in ODEs
+** <2018-09-24 Mon 08:30> BVPs
+** <2018-09-26 Wed 08:30> NO CLASS
+** <2018-10-01 Mon 08:30>
+** <2018-10-03 Wed 08:30>
+** <2018-10-08 Mon 08:30>
+** <2018-10-10 Wed 08:30>
+** <2018-10-15 Mon 08:30>
+** <2018-10-17 Wed 08:30>
+** <2018-10-22 Mon 08:30>
+** <2018-10-24 Wed 08:30>
+** <2018-10-29 Mon 08:30> ? AICHE
+** <2018-10-31 Wed 08:30> ? AICHE
+** <2018-11-05 Mon 08:30>
+** <2018-11-07 Wed 08:30>
+** <2018-11-12 Mon 08:30>
+** <2018-11-14 Wed 08:30>
+** <2018-11-19 Mon 08:30>
+** <2018-11-21 Wed 08:30> *NO CLASS* Thanksgiving
+** <2018-11-26 Mon 08:30>
+** <2018-11-28 Wed 08:30>
+** <2018-12-03 Mon 08:30>
+** <2018-12-05 Wed 08:30>
+
+
+* Code
+
+#+name: generate-schedule
+#+BEGIN_SRC emacs-lisp :results output raw
+(princ "* Class schedule\n")
+(let ((t1 (org-2ft "<2018-08-27 Mon 08:30>"))
+      (t2 (org-2ft "<2018-08-29 Wed 08:30>"))
+      (week (*  60 60 24 7))
+      (last-day (org-2ft "<2018-12-07>")))
+  (while (and (time-less-p t1 last-day)
+	      (time-less-p t2 last-day))
+    (princ
+     (format-time-string "** <%Y-%m-%d %a 08:30>\n" t1))
+    (princ
+     (format-time-string "** <%Y-%m-%d %a 08:30>\n" t2))
+    (setq t1 (time-add t1 week)
+	  t2 (time-add t2 week))))
+#+END_SRC

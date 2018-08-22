@@ -1,0 +1,13 @@
+#+OPTIONS: toc:nil
+* Announcements
+
+No announcements today.
+
+* build                                                            :noexport:
+
+#+BEGIN_SRC emacs-lisp
+(org-html-export-to-html nil nil t t)
+#+END_SRC
+
+#+RESULTS:
+: announcements.html

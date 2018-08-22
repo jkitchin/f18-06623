@@ -1,0 +1,50 @@
+* Class schedule
+** <2018-08-27 Mon 08:30> Introduction [[./lectures/intro.org]]
+** <2018-08-29 Wed 08:30> Python/Jupyter
+** <2018-09-03 Mon 08:30> *NO CLASS* Labor day
+** <2018-09-05 Wed 08:30> Numerical integration
+** <2018-09-10 Mon 08:30> First order ordinary differential equations
+** <2018-09-12 Wed 08:30> Coupled first-order differential equations
+** <2018-09-17 Mon 08:30> Nth order differential equations
+** <2018-09-19 Wed 08:30> Qualitative methods in ODEs
+** <2018-09-24 Mon 08:30> BVPs
+** <2018-09-26 Wed 08:30> NO CLASS
+** <2018-10-01 Mon 08:30>
+** <2018-10-03 Wed 08:30>
+** <2018-10-08 Mon 08:30>
+** <2018-10-10 Wed 08:30>
+** <2018-10-15 Mon 08:30>
+** <2018-10-17 Wed 08:30>
+** <2018-10-22 Mon 08:30>
+** <2018-10-24 Wed 08:30>
+** <2018-10-29 Mon 08:30> ? AICHE
+** <2018-10-31 Wed 08:30> ? AICHE
+** <2018-11-05 Mon 08:30>
+** <2018-11-07 Wed 08:30>
+** <2018-11-12 Mon 08:30>
+** <2018-11-14 Wed 08:30>
+** <2018-11-19 Mon 08:30>
+** <2018-11-21 Wed 08:30> *NO CLASS* Thanksgiving
+** <2018-11-26 Mon 08:30>
+** <2018-11-28 Wed 08:30>
+** <2018-12-03 Mon 08:30>
+** <2018-12-05 Wed 08:30>
+
+* Code
+
+#+name: generate-schedule
+#+BEGIN_SRC emacs-lisp :results output raw
+(princ "* Class schedule\n")
+(let ((t1 (org-2ft "<2018-08-27 Mon 08:30>"))
+      (t2 (org-2ft "<2018-08-29 Wed 08:30>"))
+      (week (*  60 60 24 7))
+      (last-day (org-2ft "<2018-12-07>")))
+  (while (and (time-less-p t1 last-day)
+	      (time-less-p t2 last-day))
+    (princ
+     (format-time-string "** <%Y-%m-%d %a 08:30>\n" t1))
+    (princ
+     (format-time-string "** <%Y-%m-%d %a 08:30>\n" t2))
+    (setq t1 (time-add t1 week)
+	  t2 (time-add t2 week))))
+#+END_SRC
