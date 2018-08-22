@@ -1,6 +1,10 @@
 {
-    "lectures": [],
-    "lecture_keywords": [],
+    "lectures": [
+        "lectures/README.ipynb"
+    ],
+    "lecture_keywords": [
+        ""
+    ],
     "assignments": {},
     "solutions": [],
     "announcements": ""
