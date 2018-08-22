@@ -4,6 +4,8 @@
 
 * Course details
 
+Instructor: Prof. John Kitchin (jkitchin@andrew.cmu.edu) Doherty Hall A207F
+
 ** Course description
 
 Numerical approaches to solving problems relevant to chemical engineering applications.  In this course, advanced mathematical topics relevant to chemical engineering will be used to solve complex problems.  Topics include linear algebra, nonlinear equation solving, initial value and boundary value problems for solution of differential equations, numerical optimization, probability and stochastic methods.  Focus will be placed on numerical rather than analytical solution to problems.  Unlike a typical numerical methods course, we will also focus on modeling problems, choice of appropriate solution technique, and presentation of solution.
