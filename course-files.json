@@ -5,7 +5,15 @@
     "lecture_keywords": [
         ""
     ],
-    "assignments": {},
+    "assignments": {
+        "assignments/example.ipynb": {
+            "label": "example",
+            "duedate": "2018-08-29 23:59:59",
+            "points": "1",
+            "category": "homework",
+            "grader": "John"
+        }
+    },
     "solutions": [],
     "announcements": "<div id=\"outline-container-org9f4eb41\" class=\"outline-2\">\n<h2 id=\"org9f4eb41\"><span class=\"section-number-2\">1</span> Announcements</h2>\n<div class=\"outline-text-2\" id=\"text-1\">\n<p>\nNo announcements today.\n</p>\n</div>\n</div>\n"
 }
