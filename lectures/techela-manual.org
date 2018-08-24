@@ -1,0 +1,52 @@
+#+TITLE: Manual for techela
+
+This course has some software requirements. You must have a Python 3.6+ installation. I recommend  https://www.anaconda.com/download.
+
+techela is a browser app that we will use to access the course materials, to get and turn in assignments, etc.
+
+* Installation of techela
+
+After you install Python 3.6, run the following command in a terminal:
+
+#+BEGIN_SRC sh
+pip install techela
+#+END_SRC
+
+* Opening the course
+
+At the command line, run the following command:
+
+#+BEGIN_SRC sh
+python -m techela.app f18-06623
+#+END_SRC
+
+This will open a browser at http://127.0.0.1:5543. You will see a page like this:
+
+#+attr_org: :width 300
+[[./screenshots/date-23-08-2018-time-10-39-32.png]]
+
+Enter your Andrew ID and Full Name (this can be your preferred name) in the form, and press submit. This will create a folder on your computer at ~/f18-06623. You should not move or rename this folder. After you press the submit button, you will see a page that looks like:
+
+
+
+#+attr_org: :width 300
+[[./screenshots/date-23-08-2018-time-10-46-54.png]]
+
+* Accessing the lecture notes
+
+The lecture notes will usually be provided in the form of links to Jupyter notebooks. When you click on the links, the notebooks will open in your browser.
+
+There are two sets of links to the lectures. On the left is a table labeled =Your Lectures=. These links open a copy of the notes for you to use, edit, work with, etc. You can save these changes for your own notes and open them later. On the right is a table cell labeled =Course Lectures=. These links will open the version I have put on the server. You can run these, but the results will not be saved. Each time you click on the link, a new copy of the file will be downloaded.
+
+You are welcome to bring your computer and look at these notes during class.
+
+* Assignments
+
+The assignments are in a table in the =Assignments= section. Each row will list an assignment, its current status (i.e. if you have downloaded it), when it is due, whether you have turned it in and if there is a solution available.
+
+#+attr_org: :width 300
+[[./screenshots/date-23-08-2018-time-15-52-53.png]]
+
+When you click on the label, the assignment will be downloaded if you have not gotten it yet, or opened if you have. You can do your work in the notebook, save it and close it. When you are ready to submit it, click on the Submit link. You will be prompted for your Andrew password so that it can be emailed for submission. You will get a copy of the notebook that you submitted in an email for your records.
+
+After we have graded the assignments, your assignment will be returned to you in an email.
