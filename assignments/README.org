@@ -30,3 +30,63 @@ Use python to add 5 and 5.
 #+BEGIN_SRC ipython
 
 #+END_SRC
+
+* ASSIGNED Introduction to Jupyter notebooks
+  CLOSED: [2018-08-24 Fri 16:14]
+  :PROPERTIES:
+  :LABEL:    introduction
+  :POINTS:   1
+  :TYPE:     homework
+  :RUBRIC:   default
+  :RUBRIC_CATEGORIES: technical, presentation
+  :RUBRIC_WEIGHTS: 0.8, 0.2
+  :DUEDATE:  2018-08-31 23:59:59
+  :GRADER:   John Kitchin
+  :END:
+
+** text cells
+
+Tell me something interesting about yourself in the next cell. You can convert it to a text cell by clicking in the cell, and then clicking on Cell -> Cell Type -> Markdown. When done, click Edit -> Insert Image and insert a recent picture of yourself.
+
+#+BEGIN_SRC ipython
+
+#+END_SRC
+
+In the next cell, describe your experience with programming for solving engineering problems. For example, what courses have you taken, or languages you know, etc.
+
+#+BEGIN_SRC ipython
+
+#+END_SRC
+
+In the next cell, describe what you are most concerned about for this course.
+
+#+BEGIN_SRC ipython
+
+#+END_SRC
+
+** Python cells
+
+*** A string
+
+Fix this cell so that it prints "Hello World."
+
+#+BEGIN_SRC ipython
+print "hello world
+#+END_SRC
+
+*** A function
+
+Define a function in this cell that implements $f(x) = x^2$. Print a few examples of how to use the function.
+
+#+BEGIN_SRC ipython
+
+#+END_SRC
+
+
+*** A plot
+
+Create a plot of $f(x) = x^2$ over the range $x=0..2$.
+
+#+BEGIN_SRC ipython
+
+#+END_SRC
