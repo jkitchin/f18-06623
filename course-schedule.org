@@ -30,7 +30,7 @@
 ** <2018-12-03 Mon 08:30>
 ** <2018-12-05 Wed 08:30>
 
-* Code
+* Code                                                             :noexport:
 
 #+name: generate-schedule
 #+BEGIN_SRC emacs-lisp :results output raw
