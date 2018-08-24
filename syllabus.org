@@ -31,7 +31,7 @@ To access the course materials, you will type at the command line:
 python -m techela.app f18-06623
 #+END_SRC
 
-This will open a browser with the course site open. The first time you will be prompted for your andrewid and full name. Follow the directions on the screen. You can find a manual for the course at [[./lectures/techela-manual.org]].
+This will open a browser with the course site open. The first time you will be prompted for your andrewid and full name. Follow the directions on the screen. You can find a manual for the course at [[./lectures/techela-manual.org]]. We will go over this in class.
 
 ** Course description
 
@@ -56,19 +56,28 @@ You will be able to generate computational solutions to ordinary differential eq
 *** Determination of parameters in linear and nonlinear models including uncertainty
 *** Use scientific data to build interpolation or regression models
 
+
+** Course schedule
+
+The course schedule is listed here: [[./course-schedule.org]].
+
 ** Grading
 
 Each assignment will be in one of these categories. Your final grade will be determined by the weighted sum of all your grades.
 
-#+caption: Categories and weights for graded
+#+caption: Categories and weights for graded assignments.
 #+tblname: categories
 | Category | weight |
 |----------+--------|
 | homework |    0.2 |
-| quiz     |   0.25 |
-| exam1    |    0.1 |
-| exam2    |    0.2 |
+| quiz     |    0.2 |
+| exam1    |   0.12 |
+| exam2    |   0.23 |
 | exam3    |   0.25 |
+|----------+--------|
+| Total    |     1. |
+#+TBLFM: @7$2=vsum(@2..@6)
+
 
 Each assignment will receive two grades, one for the technical work, and one for the presentation. The technical aspect counts for 80% of the total grade, and the presentation accounts for 20% of the total grade.
 
@@ -76,11 +85,9 @@ Homeworks will be assigned one to three times a week. Each assignment will typic
 
 Quizzes will be given in class. You should be prepared to take a quiz at any time. These will typically be short, timed problems.
 
-Exams will be scheduled and given during class. You will need your computer for these.
+We will not have class on the days the exams are scheduled. You may take the exam anywhere you want. The exam problems will be assigned around 8am on the day of the exam, and you will have until noon that day to turn in the exams.
 
 You should bring your computer to class every day. You will need it to follow the lecture notes, to participate in class exercises, and to complete quizzes and exams. You are responsible for ensuring the battery is charged, that you can connect to the internet, and that the software required for the course is installed and working. There will not be any makeup assignments.
-
-Late assignments will automatically lose 50% of their points. Late assignments can only be turned in by email.
 
 *** Grading criteria
 
