@@ -1,15 +1,11 @@
 {
-    "lectures": [
-        "lectures/README.ipynb"
-    ],
-    "lecture_keywords": [
-        "intro, readme, two words"
-    ],
+    "lectures": [],
+    "lecture_keywords": [],
     "assignments": {
         "assignments/example.ipynb": {
             "label": "example",
             "duedate": "2018-08-24 23:59:59",
-            "points": "1",
+            "points": "2",
             "category": "homework",
             "grader": "John Kitchin"
         }
