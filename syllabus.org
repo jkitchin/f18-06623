@@ -5,12 +5,33 @@
 * Course details
 
 Instructor: Prof. John Kitchin (jkitchin@andrew.cmu.edu) Doherty Hall A207F
+    - Office hours by appointment
 
 Teaching assistants:
 
 - Mingjie Liu :: mingie1@andrew.cmu.edu
 - Noriyuki Yoshio :: nyoshio@andrew.cmu.edu
 
+We will not be using a textbook. The course notes will be provided for you, and supplementary materials as required.
+
+You will need to install some software for this course.
+
+1. Anaconda Python 3.6.
+   1. Go to https://www.anaconda.com/download/ and install the 3.6 version for your operating system.
+
+Then, at a command line you need to run:
+
+#+BEGIN_SRC sh
+pip install techela
+#+END_SRC
+
+To access the course materials, you will type at the command line:
+
+#+BEGIN_SRC sh
+python -m techela.app f18-06623
+#+END_SRC
+
+This will open a browser with the course site open. The first time you will be prompted for your andrewid and full name. Follow the directions on the screen. You can find a manual for the course at [[./lectures/techela-manual.org]].
 
 ** Course description
 
@@ -20,15 +41,24 @@ Numerical approaches to solving problems relevant to chemical engineering applic
 
 After completing this course you will able to use Python to solve problems involving the:
 
-*** Use Jupyter notebooks to document scientific programming solutions
+*** Use Jupyter notebooks to create and document scientific programming solutions
 *** Mathematical modeling of engineering systems
-*** Numerical solutions to ordinary differential equations
-*** Numerical solutions to linear algebraic systems
-*** Numerical solutions to nonlinear algebraic systems
+
+You will be able to generate equations that model an engineering process using principles of conservation laws, and other physical principles.
+
+*** Computational solutions to ordinary differential equations
+
+You will be able to generate computational solutions to ordinary differential equations, and evaluate them for engineering design problems.
+
+*** Computational solutions to linear algebraic systems
+*** Computational solutions to nonlinear algebraic systems
+*** Computational solutions to optimization problems
 *** Determination of parameters in linear and nonlinear models including uncertainty
 *** Use scientific data to build interpolation or regression models
 
 ** Grading
+
+Each assignment will be in one of these categories. Your final grade will be determined by the weighted sum of all your grades.
 
 #+caption: Categories and weights for graded
 #+tblname: categories
@@ -40,6 +70,7 @@ After completing this course you will able to use Python to solve problems invol
 | exam2    |    0.2 |
 | exam3    |   0.25 |
 
+Each assignment will receive two grades, one for the technical work, and one for the presentation. The technical aspect counts for 80% of the total grade, and the presentation accounts for 20% of the total grade.
 
 Homeworks will be assigned one to three times a week. Each assignment will typically be one problem that should take 30-90 minutes to complete.
 

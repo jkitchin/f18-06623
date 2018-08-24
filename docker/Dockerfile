@@ -10,4 +10,9 @@ RUN jupyter nbextension enable toc2/main
 RUN jupyter nbextension enable equation-numbering/main
 RUN pip install pixiedust
 RUN pip install techela
+
+RUN apt-get update && apt-get install -y firefox
+
 CMD ["python", "-m", "techela.app", "f18-06623"]
+
+CMD /usr/bin/firefox http://localhost:5543

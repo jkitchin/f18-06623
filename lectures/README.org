@@ -1,23 +1,6 @@
 #+TITLE: README
+#+OX-IPYNB-KEYWORD-METADATA: keywords
+#+KEYWORDS: intro, readme, two words
 
-Test file
 
-#+BEGIN_SRC ipython
-a = 5
-#+END_SRC
-
-#+RESULTS:
-:RESULTS:
-# Out[1]:
-:END:
-
-#+BEGIN_SRC ipython
-a * 5
-#+END_SRC
-
-#+RESULTS:
-:RESULTS:
-# Out[2]:
-# text/plain
-: 25
-:END:
+Prepare lectures in org-mode. Export them to Jupyter notebooks. Push them.
