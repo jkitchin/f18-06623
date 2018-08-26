@@ -1,0 +1,3 @@
+#+TITLE: 06-623 Mathematical Modeling of Chemical Engineering Processes
+
+See the [[./syllabus.org]].

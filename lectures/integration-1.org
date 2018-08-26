@@ -1,0 +1,189 @@
+#+TITLE: Introduction to integration
+#+OX-IPYNB-KEYWORD-METADATA: keywords
+#+KEYWORDS: integration, trapz, quad
+
+Integration is used for many purposes in scientific problem solving. It can:
+
+1. Represent the area under a curve
+2. Solve differential equations
+
+We may have data that represents a function that needs to be integrated, or a function we want to integrate, or a differential equation we want to solve.
+
+* Numerical integration of data
+
+Data can be used to represent functions. Suppose we have the function $y=x^2$, and 5 $x$ values evenly spaced from 0 to 4. We can represent this function numerically with data like this.
+
+#+BEGIN_SRC ipython
+import numpy as np
+
+x = np.linspace(1, 4, 5)
+y = x**2
+
+%matplotlib inline
+import matplotlib.pyplot as plt
+
+plt.plot(x, y, 'bo--')  # plot with blue circles connected by a dashed line
+plt.xlabel('x')
+plt.ylabel('y')
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[26]:
+
+
+
+
+# image/png
+[[file:obipy-resources/d9632b07b477acbf48eabd2bf122330e-49561Tnc.png]]
+:END:
+
+If we want the area under this curve, it is represented by:
+
+$A = \int_0^4 x^2 dx$
+
+We could analytically evaluate this as:
+
+$A = \frac{1}{3} (4^3 - 1^3)$.
+
+Here is the analytical answer for future reference:
+
+#+BEGIN_SRC ipython
+1 / 3 * (4**3 - 1**3)
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[27]:
+# text/plain
+: 21.0
+:END:
+
+It will not always be the case that we can evaluate the integrals analytically, and sometimes we just have the data, and not the analytical function it represents (e.g. if you have measured the data).
+
+
+The classical way to compute the error under this curve is to use the trapezoid method. We know the area of a trapezoid is $A = 0.5 * width * (y1 + y2)$. In this example, we have four trapezoids to compute the areas of.
+
+To make this easier to compute, we need a few new ideas. First, it would be convenient to know how many elements are in the array =x=.
+
+#+BEGIN_SRC ipython
+len(x)
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[28]:
+# text/plain
+: 5
+:END:
+
+Second, we need to know how to compute the area of a trapezoid defined by the points in =x= and =y=. The area of the first trapezoid is defined by:
+
+#+BEGIN_SRC ipython
+0.5 * (y[0] + y[1]) * (x[1] - x[0])
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[29]:
+# text/plain
+: 1.5234375
+:END:
+
+What we would like to do is to loop over each trapezoid, compute the area, and accumulate it in a variable. Here is how we use a =for= loop to iterate from a value starting at 1 to the length of the array =x=. Note that although the length is 5, the last value of =i= is 4. The loop goes up to, but not including the last value of the range.
+
+#+BEGIN_SRC ipython
+for i in range(1, len(x)):
+    print(i)
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[30]:
+# output
+: 1
+: 2
+: 3
+: 4
+:
+:END:
+
+
+#+BEGIN_SRC ipython
+area = 0.0
+
+for i in range(1, len(x)):
+    y1 = y[i - 1]
+    y2 = y[i]
+    width = x[i] - x[i - 1]
+    area += 0.5 * width * (y1 + y2)
+
+print(f'The estimated area is {area}.')
+print(f'The exact area is {1 / 3 * (x[-1]**3 - x[0]**3)}')
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[32]:
+# output
+: The estimated area is 21.28125.
+: The exact area is 21.0
+:
+:END:
+
+Why don't these agree? The trapezoid method is an approximation of the integral. In this case the straight lines connecting the points /overestimate/ the value of the function, and so the area under this curve is overestimated.
+
+*Exercise*: Increase the number of points slowly and see how the estimate converges to the exact value.
+
+** numpy.trapz
+
+It is somewhat tedious to write the loop above, making sure you get the indexing right, etc. The trapezoid method is defined in numpy. See the help for how to use it:
+
+#+BEGIN_SRC ipython
+?np.trapz
+#+END_SRC
+
+Now, we can perform the integration with just one line:
+
+#+BEGIN_SRC ipython
+x = np.linspace(1, 4, 5)
+y = x**2
+np.trapz(y, x)
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[33]:
+# text/plain
+: 21.28125
+:END:
+
+** Simpson method
+https://docs.scipy.org/doc/scipy-0.18.1/reference/generated/scipy.integrate.simps.html#scipy.integrate.simps
+
+** Romberg method
+https://docs.scipy.org/doc/scipy-0.18.1/reference/generated/scipy.integrate.romb.html#scipy.integrate.romb
+
+* Numerical quadrature
+
+When you have a function, it is not necessary to use data to approximate the integral. =scipy.integrate= provides the [[https://docs.scipy.org/doc/scipy-0.18.1/reference/generated/scipy.integrate.quad.html#scipy.integrate.quad][quad]] function. This is a Python wrapper around a sophisticated [[https://en.wikipedia.org/wiki/QUADPACK][Fortran library]] for integrating functions. These routines use an adaptive method to compute the integral and provide an upper bound on the error of the computed integral. The beauty of this interface is we can use a reliable, proven library written in Fortran inside of Python. We do not have to write and compile a Fortran program ourselves.
+
+#+BEGIN_SRC ipython
+from scipy.integrate import quad
+
+?quad
+#+END_SRC
+
+#+BEGIN_SRC ipython
+def f(x):
+    return x**2
+
+quad(f, 1, 4)
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[34]:
+# text/plain
+: (21.000000000000004, 2.331468351712829e-13)
+:END:
