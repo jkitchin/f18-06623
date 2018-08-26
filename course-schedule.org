@@ -4,7 +4,7 @@ This page lists the days of class, and the topics we will probably cover on thos
 
 * Class schedule
 ** <2018-08-27 Mon 08:30> Introduction [[./lectures/intro.org]]
-** <2018-08-29 Wed 08:30> Python/Jupyter
+** <2018-08-29 Wed 08:30> Python/Jupyter  [[./lectures/jupyter.org]]
 ** <2018-09-03 Mon 08:30> *NO CLASS* Labor day
 ** <2018-09-05 Wed 08:30> Numerical integration
 ** <2018-09-10 Mon 08:30> First order ordinary differential equations
