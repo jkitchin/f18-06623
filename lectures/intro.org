@@ -1,5 +1,7 @@
 #+TITLE: Introduction to 06-623 Mathematical Modeling of Chemical Engineering Processes
 #+DATE: [2018-08-27 Mon]
+#+OX-IPYNB-KEYWORD-METADATA: keywords
+#+KEYWORDS: introduction
 
 #+BEGIN_SRC ipython
 
@@ -78,6 +80,9 @@ a  # this makes the value of x get displayed
 
 [[http://www.numpy.org][numpy]] is a Python library for arrays. We have to import this library to access the functionality in it. The conventional way to import this library is:
 
+<<div class="alert alert-warning">
+Remember this cell. You will use it almost every time.
+</div>
 #+BEGIN_SRC ipython
 import numpy as np
 #+END_SRC
@@ -167,6 +172,9 @@ y2 = np.cos(x)
 
 We can make plots using [[https://matplotlib.org][matplotlib]]. First we need these two lines. The first one makes the plots appear inline in the notebook. The second imports the plotting library. These should be used in this order.
 
+<div class="alert alert-warning">
+Remember this cell. You will use it almost every time you make a plot.
+</div>
 #+BEGIN_SRC ipython
 %matplotlib inline
 import matplotlib.pyplot as plt
@@ -205,6 +213,11 @@ plt.legend(['y1', 'y2'])
 Suppose we want to perform the [[https://docs.scipy.org/doc/scipy/reference/tutorial/integrate.html#general-integration-quad][following integral]]: $I = \int_0^{4.5} J_{2.5}(x) dx$. The function $J_{2.5}$ is a special function known as a Bessel function. scipy provides both the integration function, and an implementation of the special function we can use.
 
 #+BEGIN_SRC ipython
+from scipy.integrate import quad
+from scipy.special import jv
+#+END_SRC
+
+#+BEGIN_SRC ipython
 ?quad
 #+END_SRC
 
@@ -215,9 +228,6 @@ Suppose we want to perform the [[https://docs.scipy.org/doc/scipy/reference/tuto
 To evaluate this integral, we have to define a function for the integrand, and use the quad function to compute the integral. The quad function returns two values, the value of the integral, and an estimate of the maximum error in the integral.
 
 #+BEGIN_SRC ipython
-from scipy.integrate import quad
-from scipy.special import jv
-
 # This is how we define a function. There is a function name, and arguments
 # The function returns the output of the jv function.
 def integrand(x):
@@ -236,5 +246,16 @@ I, err
 :END:
 
 * Summary
+
+Today we introduced several ideas about using Jupyter notebooks to run Python computations. The main points are:
+
+1. Code is run in code cells
+2. You have to import some functions from libraries
+3. numpy, scipy and matplotlib are three of the main scientific programming libraries we will use a lot.
+4. We saw some ways to get help on functions
+
+Next time we will dig into defining functions more deeply, and how to print formatted strings containing results.
+
+* Followup actions
 
 By Wednesday, you should all have Anaconda Python 3.6 installed, with techela running.
