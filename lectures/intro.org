@@ -1,0 +1,240 @@
+#+TITLE: Introduction to 06-623 Mathematical Modeling of Chemical Engineering Processes
+#+DATE: [2018-08-27 Mon]
+
+#+BEGIN_SRC ipython
+
+#+END_SRC
+
+
+* Overview of the syllabus
+
+[[https://github.com/jkitchin/f18-06623//blob/master/syllabus.org][syllabus]]
+
+[[https://github.com/jkitchin/f18-06623//blob/master/course-schedule.org][course schedule]]
+
+Note: Do not make any travel plans until the final exam schedule is officially released. Exam 3 will probably take place during the final exam.
+
+* techela
+
+Follow these directions: [[https://github.com/jkitchin/f18-06623/blob/master/lectures/techela-manual.org][techela manual]]
+
+#+BEGIN_SRC sh
+python -m techela.app f18-06623
+#+END_SRC
+
+=techela= is a software package I wrote for this course. It should make it easier for me to distribute the class notes, for you to get the assignments, turn them in, and for us to return the assignments to you.
+
+* Python
+
+I will use Python exclusively in class, every day. Python is free, and better than anything else for what we will do in this class. I have used it in research for more than a decade, and it is one of the most popular programming languages around today.
+
+I assume most of you have not used Python before. We will start small, and continuously build up skills in using it. You will see it a lot, and you should practice using it. It is an opportunity to learn something new!
+
+For a lot of examples of using Python for scientific computing, see http://kitchingroup.cheme.cmu.edu/pycse/.
+
+* Jupyter notebook introduction
+
+Jupyter notebooks are an interactive, browser-based tool for running Python. We will use them exclusively in this class. We will quickly build up the skills required to solve engineering problems. We will not learn everything about programming, mathematical modeling or engineering processes. My goal is to get you thinking about a very general computational way of thinking about these problems, and to learn how to use computation as a way to augment your analytical skills.
+
+I will lecture from the notebooks, and show you how I use them. The notes will be available to you during class for you to work along with me.
+
+#+BEGIN_SRC ipython
+print('Hello World!')
+# Type C-Enter to run this cell
+# Type shift-Enter to run this cell and got to the next one or create a new one.
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[2]:
+# output
+: Hello World!
+:
+:END:
+
+What is the value of $a$ that satisfies the equation $a + 4 = 5$?
+
+We can document our solution here, e.g. we find $x$ by algebra. If we subtract 4 from each side of the equation, $a$ will be isolated, and equal to the value of the right hand side of the equation.
+
+<div class="alert alert-warning">
+You can double-click on any text block to see what the Markdown is that generates it. Type C-Enter to re-render the cell.
+</div>
+
+Here is the code that implements that explanation:
+
+#+BEGIN_SRC ipython
+a = 5 - 4
+a  # this makes the value of x get displayed
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[3]:
+# text/plain
+: 1
+:END:
+
+** numpy
+
+[[http://www.numpy.org][numpy]] is a Python library for arrays. We have to import this library to access the functionality in it. The conventional way to import this library is:
+
+#+BEGIN_SRC ipython
+import numpy as np
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[4]:
+:END:
+
+To see help on the numpy library, run this cell:
+
+#+BEGIN_SRC ipython
+?np
+#+END_SRC
+
+
+Now, we can access functions in the numpy module using "dot notation". For example, let us start by creating an array of linearly spaced points using the linspace function. First, we access the help to see how to use it.
+
+#+BEGIN_SRC ipython
+?np.linspace
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[5]:
+:END:
+
+
+#+BEGIN_SRC ipython
+x = np.linspace(0, 2 * np.pi)
+x
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[6]:
+# text/plain
+: array([ 0.        ,  0.12822827,  0.25645654,  0.38468481,  0.51291309,
+:         0.64114136,  0.76936963,  0.8975979 ,  1.02582617,  1.15405444,
+:         1.28228272,  1.41051099,  1.53873926,  1.66696753,  1.7951958 ,
+:         1.92342407,  2.05165235,  2.17988062,  2.30810889,  2.43633716,
+:         2.56456543,  2.6927937 ,  2.82102197,  2.94925025,  3.07747852,
+:         3.20570679,  3.33393506,  3.46216333,  3.5903916 ,  3.71861988,
+:         3.84684815,  3.97507642,  4.10330469,  4.23153296,  4.35976123,
+:         4.48798951,  4.61621778,  4.74444605,  4.87267432,  5.00090259,
+:         5.12913086,  5.25735913,  5.38558741,  5.51381568,  5.64204395,
+:         5.77027222,  5.89850049,  6.02672876,  6.15495704,  6.28318531])
+:END:
+
+Most mathematical operations are element-wise on arrays.
+
+#+BEGIN_SRC ipython
+2 * x
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[7]:
+# text/plain
+: array([  0.        ,   0.25645654,   0.51291309,   0.76936963,
+:          1.02582617,   1.28228272,   1.53873926,   1.7951958 ,
+:          2.05165235,   2.30810889,   2.56456543,   2.82102197,
+:          3.07747852,   3.33393506,   3.5903916 ,   3.84684815,
+:          4.10330469,   4.35976123,   4.61621778,   4.87267432,
+:          5.12913086,   5.38558741,   5.64204395,   5.89850049,
+:          6.15495704,   6.41141358,   6.66787012,   6.92432667,
+:          7.18078321,   7.43723975,   7.69369629,   7.95015284,
+:          8.20660938,   8.46306592,   8.71952247,   8.97597901,
+:          9.23243555,   9.4888921 ,   9.74534864,  10.00180518,
+:         10.25826173,  10.51471827,  10.77117481,  11.02763136,
+:         11.2840879 ,  11.54054444,  11.79700098,  12.05345753,
+:         12.30991407,  12.56637061])
+:END:
+
+We can define new variables
+#+BEGIN_SRC ipython
+y1 = np.sin(x)
+y2 = np.cos(x)
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[8]:
+:END:
+
+** plotting
+
+We can make plots using [[https://matplotlib.org][matplotlib]]. First we need these two lines. The first one makes the plots appear inline in the notebook. The second imports the plotting library. These should be used in this order.
+
+#+BEGIN_SRC ipython
+%matplotlib inline
+import matplotlib.pyplot as plt
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[9]:
+:END:
+
+You call functions in the plt library to create plots. These are automatically saved in the notebook.
+
+#+BEGIN_SRC ipython
+plt.plot(x, y1, x, y2)
+plt.xlabel('x')
+plt.ylabel('y')
+plt.legend(['y1', 'y2'])
+# Always include axis labels and legends when appropriate
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[11]:
+
+
+
+
+# image/png
+[[file:obipy-resources/6316de97116077f6ddc28b130cb204f8-49561f3P.png]]
+:END:
+
+** scipy
+
+[[https://www.scipy.org][scipy]] contains numerous libraries for a broad range of scientific computing needs.
+
+Suppose we want to perform the [[https://docs.scipy.org/doc/scipy/reference/tutorial/integrate.html#general-integration-quad][following integral]]: $I = \int_0^{4.5} J_{2.5}(x) dx$. The function $J_{2.5}$ is a special function known as a Bessel function. scipy provides both the integration function, and an implementation of the special function we can use.
+
+#+BEGIN_SRC ipython
+?quad
+#+END_SRC
+
+#+BEGIN_SRC ipython
+?jv
+#+END_SRC
+
+To evaluate this integral, we have to define a function for the integrand, and use the quad function to compute the integral. The quad function returns two values, the value of the integral, and an estimate of the maximum error in the integral.
+
+#+BEGIN_SRC ipython
+from scipy.integrate import quad
+from scipy.special import jv
+
+# This is how we define a function. There is a function name, and arguments
+# The function returns the output of the jv function.
+def integrand(x):
+    return jv(2.5, x)
+
+I, err = quad(integrand, 0, 4.5)
+
+I, err
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[15]:
+# text/plain
+: (1.1178179380783253, 7.866317216380692e-09)
+:END:
+
+* Summary
+
+By Wednesday, you should all have Anaconda Python 3.6 installed, with techela running.

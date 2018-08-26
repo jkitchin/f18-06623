@@ -1,0 +1,653 @@
+#+TITLE: Jupyter
+
+Goals today:
+- Explore Jupyter
+- Practice some Markdown
+- Practice making and using functions
+- Practice printing formatted strings
+
+* Markdown
+
+Double click on this cell to see how to make:
+1. A
+2. Numbered
+3. List
+
+You can also make bulleted lists:
+
+- A
+- bulleted
+- list
+  - Including
+    - different
+    - levels
+
+Text that is *bold*, /italics/, _underlined_, +crossed-out+. Some <font color="red">red text</font>.
+
+Math is written in LaTeX format (https://en.wikibooks.org/wiki/LaTeX/Mathematics). Consider:
+- this fraction $\frac{1}{2}$,
+- square root $\sqrt{3}$
+- sum $\sum_{i=1}^{10} t_i$
+- A chemical formula: H$_2$O
+- An integral $\int_a^b f(x)dx$
+
+You do not need to learn all of these right now. It will be useful to pay attention to what is in the notes. It will help you express your ideas more clearly.
+
+You can convert a cell to Markdown by pressing escape then m. You can convert it back to a Code cell by typing escape then y.
+
+** Headings and subheadings
+
+It can be helpful to organize your notebook into sections. You can use headings and subheadings to make logical sections.
+
+*** Subsubheadings
+
+You can learn more about Markdown syntax at https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html.
+
+** Keyboard shortcuts
+
+You can do most things by clicking in cells and typing, or clicking on the menus. Eventually, you may want to learn some keyboard shortcuts to speed up your work.
+
+<div class="alert alert-warning">
+You can access a list of keyboard shortcuts in the following ways:
+
+1. Click on the keyboard icon
+2. Windows/Linux: Type C-shift-p
+3. Mac: Type Cmd-shift-p
+
+From the menus:
+Help -> Keyboard Shortcuts
+</div>
+
+You do not need to learn these if you don't want to; you can always use the mouse and menus.
+
+* Running code
+
+Jupyter notebooks serve two purposes:
+
+1. To document your work
+2. To run code
+
+It is important to have a basic understanding of how the notebooks work. The browser displays the notebook. The actual computations are run on a server on your computer. When you "run" a code cell, the code is sent to the server, and the server sends the results back to the browser where they are rendered.
+
+When you first open a notebook, /nothing/ has been executed. If you try to execute cells out of order, you will get errors if anything in the cell depends on a previous cell. You should run the cells in order. Here are some ways to do that.
+
+1. Starting in the first cell, click the Run button until you get to the end.
+2. Starting in the first cell, click in the menu: Cell -> Run all
+3. Starting in the first cell, type shift-Enter to run each cell and move to the next one.
+
+Occasionally, you may want to restart the server and rerun all the cells. Select the menu: Kernel -> Restart & Run all. If you run cells out of order, or something seems messed up for some reason, sometimes this fixes it. It also makes sure the output of each cell is consistent with running them in order from scratch.
+
+** Debugging/getting help
+
+See the Help menu to access general documentation about the notebook and the main libraries we will be using. I would get familiar with their contents, but I would not try to read them all at once.
+
+You should be able to press Shift-tab after a command to get some documentation about the command.
+
+#+BEGIN_SRC ipython
+print
+#+END_SRC
+
+While debugging a cell, you should use C-Enter to run the cell so that you see the output, but your cursor stays in the cell so you can continue editing it. To go back to editing the cell, just press Enter. It is good practice to run cells whenever you think they should work correctly, because it is easier to debug the last few lines you wrote than a long block of lines. Let's work an example.
+
+Create a code cell that defines two variables $x=5$ and $y=4$, and then compute $x^2 + y^2$.
+
+#+BEGIN_SRC ipython
+
+#+END_SRC
+
+
+When you are happy with the cell and its output, you can insert a new cell above or below it from the Insert menu or by typing:
+
+- Esc a enter :: insert a cell above and start editing it
+- Esc b enter :: insert a cell below and start editing it
+
+Alternatively, in the cell, type shift-enter to execute it one more time, and then move to the next cell (adds a new cell if you are at the end).
+
+Jupyter notebooks can act in unexpected ways if you evaluate the cells out of order. It can be very difficult to debug this. When that happens, you are often best off if you restart the kernel and execute the cells from the beginning.
+
+#+BEGIN_SRC ipython
+a = 4
+#+END_SRC
+
+
+#+BEGIN_SRC ipython
+a += 1  # this increments the value of a by one.
+#+END_SRC
+
+
+#+BEGIN_SRC ipython
+print(a)
+#+END_SRC
+
+* Functions
+
+Functions are
+
+** Minimal definition of a function with one input
+
+Functions are defined with the =def= keyword. You specify a name, and the arguments in parentheses, and end the line with a colon. The body of the function must be indented (conventionally by 4 spaces). The function ends when the indentation goes back down one level. You have to define what is returned from the function using the =return= keyword.
+
+Here is a minimal function definition that simply multiplies the input by two and returns it.
+
+#+BEGIN_SRC ipython
+def f(x):
+    y = x * 2
+    return y
+#+END_SRC
+
+Let's evaluate our function with a few values:
+
+#+BEGIN_SRC ipython
+# Try an integer, float, string, a list, an array (don't forget to import numpy first)
+#+END_SRC
+
+Python uses "duck-typing" to figure out what multiply by two means. That can lead to some surprising results when you use data types that were not intended for your function.
+
+Minimal is not always the most informative. You can add an optional documentation string like this.
+
+#+BEGIN_SRC ipython
+def f(x):
+    """Optional, multiline documentation string
+    x should be a number. It is still not an error to use a string or array.
+    """
+    y = x + 2
+    return y
+#+END_SRC
+
+The input argument =x= is mandatory here, and has no default value.
+
+** Functions with multiple arguments
+
+Suppose you want a function where you can multiply the argument by a user-specified value, that defaults to 2. We can define a function with two arguments, where one is optional with a default value. The optional argument is sometimes called a parameter.
+
+#+BEGIN_SRC ipython
+def f(x, a=2):
+    # The next string is a one line documentation string. The comment here will
+    # not be visible in the help.
+    "Return a * x. a is optional with default value of 2."
+    y = x * a
+    return y
+#+END_SRC
+
+Now, there are several ways to evaluate this function. If you just provide the value of =x=, then the default value of =a= will be used.
+
+#+BEGIN_SRC ipython
+f(2)  # x = 2, since a is not provided, the default a=2 is used
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[3]:
+# text/plain
+: 4
+:END:
+
+Here we use the position of each argument to define the arguments as x=2 and a=3.
+
+#+BEGIN_SRC ipython
+f(2, 3) # x=2, a=3
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[5]:
+# text/plain
+: 6
+:END:
+
+We can be very clear about the second value by defining it as a keyword argument:
+
+#+BEGIN_SRC ipython
+f(2, a=4)
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[6]:
+# text/plain
+: 8
+:END:
+
+Note, however, that since the first argument has no default value, it is called a positional argument, and so in this case you must /always/ define the first argument as the value of x. This will be an error:
+
+#+BEGIN_SRC ipython
+f(a=4, 2)
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[9]:
+# output
+:   File "<ipython-input-9-41d646a608d0>", line 1
+:     f(a=4, 2)
+:           ^
+: SyntaxError: positional argument follows keyword argument
+:
+:END:
+
+You cannot put positional arguments after keyword arguments. This is ok, since every argument is defined by a keyword. This allows you to specify arguments in the order you want, and when there are lots of arguments makes it easier to remember what each one is for.
+
+#+BEGIN_SRC ipython
+f(a=4, x=2)
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[11]:
+# text/plain
+: 8
+:END:
+
+You should be careful about when and where you define variables. In most programming languages, there is a concept of /variable scope/, that is where is the variable defined, and what value does it have there. Here, =a= is defined outside the function, so the function inherits the value of =a= when it is defined. If you change =a=, you change the function. That can be confusing.
+
+#+BEGIN_SRC ipython
+a = 2
+
+def f(x):
+    y = a * x
+    return y
+
+f(2)
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[12]:
+# text/plain
+: 4
+:END:
+
+#+BEGIN_SRC ipython
+a = 3  # changing the global value of a changes the function.
+f(2)
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[13]:
+# text/plain
+: 6
+:END:
+
+However, you can "shadow" a variable. In this example, we use an internal definition of =a= in the function, which replaces the external value of =a= /only inside the function/.
+
+#+BEGIN_SRC ipython
+a = 2
+
+def f(x):
+    a = 3  # This only changes a inside the function
+    y = a * x
+    return y
+
+f(2)
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[17]:
+# text/plain
+: 6
+:END:
+
+The global value of =a= is unchanged.
+
+#+BEGIN_SRC ipython
+a
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[18]:
+# text/plain
+: 2
+:END:
+
+A similar behavior is observed with arguments. Here the argument =a= will shadow (redefine) the global value of =a=, but only inside the function.
+
+#+BEGIN_SRC ipython
+def f(x, a):
+    y = a * x
+    return y
+
+f(2, a=3)
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[19]:
+# text/plain
+: 6
+:END:
+
+The external value of =a= is unchanged in this case.
+
+#+BEGIN_SRC ipython
+a
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[20]:
+# text/plain
+: 2
+:END:
+
+The point here is to be careful with how you define and reuse variable names. In this example, it is more clear that we are using an internal definition of =a=, simply by prefixing the variable name with an underscore (you can also just give it another name, e.g. =b=).
+
+#+BEGIN_SRC ipython
+a = 2
+
+def f(x, _a):
+    y = _a * x
+    return y
+
+f(2, a=3)
+#+END_SRC
+
+** Functions that return multiple values
+
+A function can return multiple values.
+
+#+BEGIN_SRC ipython
+def f(x):
+    even = x % 2 == 0
+    return x, even  # This returns a tuple
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[31]:
+:END:
+
+#+BEGIN_SRC ipython
+f(2)
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[32]:
+# text/plain
+: (2, True)
+:END:
+
+#+BEGIN_SRC ipython
+type(f(2))
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[36]:
+# text/plain
+: tuple
+:END:
+
+
+#+BEGIN_SRC ipython
+f(3)
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[33]:
+# text/plain
+: (3, False)
+:END:
+
+If you assign the output of the function to a variable, it will be a tuple.
+
+#+BEGIN_SRC ipython
+z = f(3)
+z
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[35]:
+# text/plain
+: (3, False)
+:END:
+
+You can access the elements of the tuple by indexing.
+
+#+BEGIN_SRC ipython
+print(z[0])
+print(z[1])
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[37]:
+# output
+: 3
+: False
+:
+:END:
+
+You can also /unpack/ the tuple into variable names. Here there are two elements in the output, and we can assign them to two variable names.
+
+#+BEGIN_SRC ipython
+value, even = f(3)
+print(value)
+print(even)
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[34]:
+# output
+: 3
+: False
+:
+:END:
+
+You can have the function return any kind of data type. If you just use comma-separated return values, you will return a tuple. If you put them in square brackets, you will return a list. In some cases you will want to return an array. When you write functions, you have to decide what they return, and then use them accordingly. When you use functions that others have written (e.g. from a library), you have to read the documentation to see what arguments are required, and what the function returns.
+
+* Strings
+
+We will use strings a lot to present the output of our work. Suppose Amy has 10 apples, and she gives Bob 3 apples. How many apples does Amy have left?
+
+You could solve it like this:
+
+#+BEGIN_SRC ipython
+print('Amy has', 10 - 3, 'apples left')
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[45]:
+# output
+: Amy has 7 apples left
+:
+:END:
+
+Or, this more clear code.
+
+#+BEGIN_SRC ipython
+original_count = 10
+count_given = 3
+apples_remaining = original_count - count_given
+print(f'Amy has {apples_remaining} apples left.')
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[42]:
+# output
+: Amy has 7 apples left.
+:
+:END:
+
+We have used a /formatted string/ here. A formatted string looks like f'...', and it has elements inside it in curly brackets that are replaced with values from the environment. We can format the values using formatting codes.
+
+The most common use will be formatting floats. If you just print these, you will get a lot of decimal places, more than is commonly needed for engineering problems.
+
+#+BEGIN_SRC ipython
+a = 2 / 3
+print(a)
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[46]:
+# output
+: 0.6666666666666666
+:
+:END:
+
+We can print this as a float with only three decimal places like this:
+
+#+BEGIN_SRC ipython
+print(f'a = {a:1.3f}.')
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[49]:
+# output
+: a = 0.667.
+:
+:END:
+
+The syntax here for float numbers is {varname:width.decimalsf}. We will usually set the width to 1, and just change the number of decimal places.
+
+There are other ways to format strings in Python, but I will try to only use this method. It is the most readable in my opinion (note: this only works in Python 3. For Python 2, you may have to use one of the other methods.).
+
+You can do some math inside these strings
+
+#+BEGIN_SRC ipython
+volume = 10.0  # L
+flowrate = 4.0  # L/s
+
+print(f'The residence time is {volume / flowrate:1.2f} seconds.')
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[65]:
+# output
+: The residence time is 2.50 seconds.
+:
+:END:
+
+You can also call functions in the formatted strings:
+
+#+BEGIN_SRC ipython
+def f(x):
+    return 1 / x
+
+print(f'The value of 1 / 4.1 to 4 decimal places is {f(4.1):1.4f}.')
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[81]:
+# output
+: The value of 1 / 4.1 to 4 decimal places is 0.2439.
+:
+:END:
+
+There are many ways to use these, and you should use the method that is most readable.
+
+We will see many examples of this in the class. For complete reference on the formatting codes see https://docs.python.org/3.6/library/string.html#format-specification-mini-language.
+
+** Printing arrays
+
+Arrays are printed in full accuracy by default. This often results in hard to read outputs. Consider this array.
+
+#+BEGIN_SRC ipython
+import numpy as np
+
+x = np.linspace(0, 10, 4) + 1e-15
+x
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[61]:
+# text/plain
+: array([  1.000e-15,   3.333e+00,   6.667e+00,   1.000e+01])
+:END:
+
+You cannot use formatted strings on arrays like this:
+
+#+BEGIN_SRC ipython
+print(f'x = {x:1.3f}')
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[66]:
+# output
+:
+: TypeErrorTraceback (most recent call last)
+: <ipython-input-66-42ea60810d4c> in <module>()
+: ----> 1 print(f'x = {x:1.3f}')
+:
+: TypeError: unsupported format string passed to numpy.ndarray.__format__
+:END:
+
+You can use this to print individual elements of the array (you access them with [] indexing). First, we print the first element as a float:
+
+#+BEGIN_SRC ipython
+print(f'x = {x[0]:1.3f}')
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[76]:
+# output
+: x = 0.000
+:
+:END:
+
+And in exponential (Scientific notation):
+
+#+BEGIN_SRC ipython
+print(f'x = {x[0]:1.3e}')
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[77]:
+# output
+: x = 1.000e-15
+:
+:END:
+
+
+Instead, you can control how arrays are /printed/ with this line. Note this does not affect the value of the arrays, just how they are printed. The precision argument specifies how many decimal places, and suppress means do not print very small numbers, e.g. 1e-15 is approximately zero, so print it as zero.
+
+#+BEGIN_SRC ipython
+np.set_printoptions(precision=3, suppress=True)
+x
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[62]:
+# text/plain
+: array([  0.   ,   3.333,   6.667,  10.   ])
+:END:
+
+Here we just illustrate that x[0] is not zero as printed. If it was, we would get a DivisionByZero error here.
+
+#+BEGIN_SRC ipython
+1 / x[0]
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[63]:
+# text/plain
+: 999999999999999.88
+:END:
+* Summary
+
+You should get comfortable with:
+- Creating markdown cells in Jupyter notebooks that express the problem you are solving, and your approach to it.
+- Creating code cells to evaluate Python expressions
+- Defining functions with arguments
+- Printing formatted strings containing your results
+
+Next time:
+We will start using functions to solve integrals and differential equations.

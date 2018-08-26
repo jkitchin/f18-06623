@@ -1,8 +1,10 @@
 {
     "lectures": [
-        "lectures/intro.ipynb"
+        "lectures/intro.ipynb",
+        "lectures/jupyter.ipynb"
     ],
     "lecture_keywords": [
+        "",
         ""
     ],
     "assignments": {
