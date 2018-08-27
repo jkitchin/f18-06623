@@ -1,6 +1,6 @@
 #+TITLE: Introduction to integration
 #+OX-IPYNB-KEYWORD-METADATA: keywords
-#+KEYWORDS: integration, trapz, quad
+#+KEYWORDS: integration, trapz, cumtrapz, quad
 
 Integration is used for many purposes in scientific problem solving. It can:
 
@@ -110,13 +110,13 @@ for i in range(1, len(x)):
 
 
 #+BEGIN_SRC ipython
-area = 0.0
+area = 0.0  # variable we will accumulate the area in
 
 for i in range(1, len(x)):
     y1 = y[i - 1]
     y2 = y[i]
     width = x[i] - x[i - 1]
-    area += 0.5 * width * (y1 + y2)
+    area += 0.5 * width * (y1 + y2)  # increment the area variable
 
 print(f'The estimated area is {area}.')
 print(f'The exact area is {1 / 3 * (x[-1]**3 - x[0]**3)}')
@@ -158,11 +158,163 @@ np.trapz(y, x)
 : 21.28125
 :END:
 
-** Simpson method
-https://docs.scipy.org/doc/scipy-0.18.1/reference/generated/scipy.integrate.simps.html#scipy.integrate.simps
+** TODO Simpson method https://docs.scipy.org/doc/scipy-0.18.1/reference/generated/scipy.integrate.simps.html#scipy.integrate.simps
 
-** Romberg method
+** TODO Romberg method
 https://docs.scipy.org/doc/scipy-0.18.1/reference/generated/scipy.integrate.romb.html#scipy.integrate.romb
+
+** Applications
+
+*** Estimating the volume of a solid
+
+We can use integrals to compute the volume of solids. If we know how the cross-sectional area of a solid varies in some direction, we simply evaluate the following integral:
+
+$\int_{x0}^{x1} A(x) dx$
+
+For a sphere, we can derive:
+
+$A(x) = \pi (1 - x^2)$
+
+#+BEGIN_SRC ipython
+R = 1
+x = np.linspace(-R, R)
+y = np.pi * (1 - x**2)
+
+approx_V = np.trapz(y, x)
+exact_V = 4 / 3 * np.pi * R**3
+
+print(f'''Approximate volume = {approx_V:1.4f}
+Exact volume = {exact_V:1.4f}''')
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[46]:
+# output
+: Approximate volume = 4.1870
+: Exact volume = 4.1888
+:
+:END:
+
+With 50 points, the estimate is pretty good. Try increasing the number of points to improve the estimate.
+
+*** Estimating the volume of a plug flow reactor
+
+Adapted from Fogler example 2.7. The volume of a plug flow reactor is defined by this integral:
+
+$\int_{X0}^{X1} \frac{F_{A0}}{-r_A} dX$
+
+where $F_{A0}$ is the inlet molar flow of species A, $X$ is the conversion, and $-r_A$ is the rate of generation of species A per unit volume. $r_A$  is a function of conversion. We often do not know what the function is, but we can measure the rate of generation. Below is some tabulated data of the rate of generation of species A as a function of conversion.
+
+|    X | -r_A (kmol / m^3 / hr) |
+|------+------------------------|
+|    0 |                     39 |
+|  0.2 |                     53 |
+|  0.4 |                     59 |
+|  0.6 |                     38 |
+| 0.65 |                     25 |
+
+Use this data to estimate the volume of the reactor required to achieve a conversion of 0.65.
+
+#+BEGIN_SRC ipython
+X = np.array([0, 0.2, 0.4, 0.6, 0.65])
+
+ra = -np.array([39, 53, 59, 38, 25])
+
+Fa0 = 50 # kmol / hr.
+
+V = np.trapz(Fa0 / -ra, X)
+
+print(f'The required volume is {V:1.3f} m^3'.)
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[48]:
+# output
+: The required volume is 0.701 m^3
+:
+:END:
+
+How does the volume depend on conversion?
+
+#+BEGIN_SRC ipython
+plt.plot(X, Fa0 / -ra)
+plt.xlabel('Conversion')
+plt.ylabel('$F_{A0} / -r_A$')
+plt.xlim([0, 0.65])
+plt.ylim([0, 2])
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[57]:
+# text/plain
+: (0, 2)
+
+
+
+# image/png
+[[file:obipy-resources/d9632b07b477acbf48eabd2bf122330e-49561tCd.png]]
+:END:
+
+We could iterate over the conversions and print the volume for each value. This is a little wasteful since we recompute the areas in each iteration, but here it is so fast it does not matter.
+
+#+BEGIN_SRC ipython
+y = Fa0 / -ra
+
+volumes = []  # empty list to store values in
+
+for i in range(0, len(X)):
+    vol = np.trapz(y[0:i+1], X[0:i+1])
+    volumes += [vol] # here we accumulate the vol into our list
+    print(f'At X={X[i]:3.2f} V={vol:1.3f} m^3')
+
+volumes
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[68]:
+# output
+: At X=0.00 V=0.000 m^3
+: At X=0.20 V=0.223 m^3
+: At X=0.40 V=0.402 m^3
+: At X=0.60 V=0.618 m^3
+: At X=0.65 V=0.701 m^3
+:
+# text/plain
+: [0.0,
+:  0.22254475084663766,
+:  0.40163013620001153,
+:  0.61795484628029695,
+:  0.70084958312240231]
+:END:
+
+An alternative approach is to use a cumulative trapezoid function. This is defined in scipy.integrate. The main benefit of this approach is that it is faster, as it does not recompute the areas, and the code is shorter, so there are less places to make mistakes!
+
+#+BEGIN_SRC ipython
+import scipy as sp
+cumV = sp.integrate.cumtrapz(Fa0 / -ra, X)
+
+plt.plot(X[1:], cumV)
+plt.xlabel('Conversion')
+plt.ylabel('Volume (m$^3$)')
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[53]:
+
+
+
+
+# image/png
+[[file:obipy-resources/d9632b07b477acbf48eabd2bf122330e-495615ZE.png]]
+:END:
+
+What if you want to know the volume required for an intermediate conversion? For that you need interpolation. We will cover that later in the course when we talk more about dealing with data.
+
 
 * Numerical quadrature
 
@@ -186,4 +338,47 @@ quad(f, 1, 4)
 # Out[34]:
 # text/plain
 : (21.000000000000004, 2.331468351712829e-13)
+:END:
+
+We can recompute the volume of a sphere much more precisely, and easily now. Recall $A(x) = \pi (1 - x^2)$ and that $V = \int_{-1}^{1} A(x) dx$. Here is the implementation.
+
+#+BEGIN_SRC ipython
+def cross_section(x):
+    return np.pi * (1 - x**2)
+
+quad(cross_section, -1, 1)
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[69]:
+# text/plain
+: (4.1887902047863905, 4.6504913306781755e-14)
+:END:
+
+** TODO PFR
+Similarly, if we know
+
+#+BEGIN_SRC ipython
+k = 0.23
+Ca0 = 1.0
+v0 = 1.0
+
+Fa0 = v0 * Ca0
+
+def rA(X):
+    Ca = Ca0 * (1 - X)
+    return -k * Ca
+
+def integrand(X):
+    return Fa0 / -rA(X)
+
+quad(integrand, 0, 0.5)
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[71]:
+# text/plain
+: (3.0136833937388925, 3.3458606926593995e-14)
 :END:
