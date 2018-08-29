@@ -8,6 +8,13 @@
         ""
     ],
     "assignments": {
+        "assignments/fun-1.ipynb": {
+            "label": "fun-1",
+            "duedate": "2018-09-07 23:59:59",
+            "points": "1",
+            "category": "homework",
+            "grader": "John Kitchin"
+        },
         "assignments/introduction.ipynb": {
             "label": "introduction",
             "duedate": "2018-08-31 23:59:59",
