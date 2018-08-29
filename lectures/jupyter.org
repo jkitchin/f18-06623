@@ -22,7 +22,7 @@ You can also make bulleted lists:
     - different
     - levels
 
-Text that is *bold*, /italics/, _underlined_, +crossed-out+. Some <font color="red">red text</font>.
+Text that is *bold*, /italics/, +crossed-out+. Some <font color="red">red text</font>.
 
 Math is written in LaTeX format (https://en.wikibooks.org/wiki/LaTeX/Mathematics). Consider:
 - this fraction $\frac{1}{2}$,
@@ -30,6 +30,12 @@ Math is written in LaTeX format (https://en.wikibooks.org/wiki/LaTeX/Mathematics
 - sum $\sum_{i=1}^{10} t_i$
 - A chemical formula: H$_2$O
 - An integral $\int_a^b f(x)dx$
+
+--------------
+
+You can see more details at https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html.
+
+--------------
 
 You do not need to learn all of these right now. It will be useful to pay attention to what is in the notes. It will help you express your ideas more clearly.
 
@@ -121,7 +127,7 @@ print(a)
 
 * Functions
 
-Functions are
+Functions are an important part of any programming language. They allow you to reuse code, and make programs more readable.
 
 ** Minimal definition of a function with one input
 
