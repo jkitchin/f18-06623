@@ -1,10 +1,12 @@
 {
     "lectures": [
+        "lectures/fode-1.ipynb",
         "lectures/integration-1.ipynb",
         "lectures/intro.ipynb",
         "lectures/jupyter.ipynb"
     ],
     "lecture_keywords": [
+        "integration, quad, zeros, shape, enumerate, solve_ivp",
         "integration, trapz, cumtrapz, quad",
         "introduction",
         ""
