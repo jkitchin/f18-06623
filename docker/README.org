@@ -1,0 +1,10 @@
+* Commands from Zack
+#+BEGIN_SRC sh
+docker run -it --rm -p 8888:8888 -p 5543:5543 -v
+"%userprofile%/Documents/:/home/jovyan/"   zulissi/jupyter_06625 /bin/bash
+-c "python -m techela.app f18-06623"
+
+docker run -it --rm -p 8888:8888 -p 5543:5543 -v
+"~/Documents/:/home/jovyan/"   zulissi/jupyter_06625 /bin/bash -c "python
+-m techela.app f18-06623"
+#+END_SRC
