@@ -1,7 +1,7 @@
 #+OPTIONS: toc:nil
 * Announcements
 
-No announcements today.
+[2018-09-04 Tue] A curated list of awesome scientific Python resources. https://github.com/rossant/awesome-scientific-python
 
 * build                                                            :noexport:
 

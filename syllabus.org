@@ -1,6 +1,8 @@
 #+TITLE: Syllabus for  06-623 Mathematical Modeling of Chemical Engineering Processes
 #+AUTHOR: John Kitchin
 #+DATE: Fall 2018
+#+options: toc:nil
+\maketitle
 
 * Course details
 
