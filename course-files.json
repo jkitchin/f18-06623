@@ -27,6 +27,8 @@
             "grader": "John Kitchin"
         }
     },
-    "solutions": [],
+    "solutions": [
+        "solutions/introduction.ipynb"
+    ],
     "announcements": "<div id=\"outline-container-org5d51a92\" class=\"outline-2\">\n<h2 id=\"org5d51a92\"><span class=\"section-number-2\">1</span> Announcements</h2>\n<div class=\"outline-text-2\" id=\"text-1\">\n<p>\n<span class=\"timestamp-wrapper\"><span class=\"timestamp\">[2018-09-04 Tue] </span></span> A curated list of awesome scientific Python resources. <a href=\"https://github.com/rossant/awesome-scientific-python\">https://github.com/rossant/awesome-scientific-python</a>\n</p>\n</div>\n</div>\n"
 }
