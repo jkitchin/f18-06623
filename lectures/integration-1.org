@@ -7,9 +7,15 @@ Integration is used for many purposes in scientific problem solving. It can:
 1. Represent the area under a curve or between curves
 2. Solve differential equations
 
-We may have data that represents a function that needs to be integrated, or a function we want to integrate, or a differential equation we want to solve.
+We may have data that represents a function that needs to be integrated, or a function we want to integrate, or a differential equation we want to solve. We may also have data that represents a some function, and that we wish to integrate.
 
-We may also have data that represents a curve, and that we wish to integrate.
+Historically, we would have to look up or remember the formula for an integral, e.g. in a book like this (16^{th} ed. CRC Standard Mathematical Tables):
+
+image:~/Downloads/IMG_1889.JPG
+
+There are a limited number of known analytical integrals, and for everything else, we have to resort to numerical/computational approaches to evaluate them.
+
+
 
 * Numerical integration of data
 
