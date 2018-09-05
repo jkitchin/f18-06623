@@ -12,6 +12,13 @@
         ""
     ],
     "assignments": {
+        "assignments/erf-fluids.ipynb": {
+            "label": "erf-fluids",
+            "duedate": "2018-09-11 23:59:59",
+            "points": "1",
+            "category": "homework",
+            "grader": "Noriyuki Yoshio"
+        },
         "assignments/fun-1.ipynb": {
             "label": "fun-1",
             "duedate": "2018-09-07 23:59:59",
@@ -25,6 +32,13 @@
             "points": "1",
             "category": "homework",
             "grader": "John Kitchin"
+        },
+        "assignments/shomate-integration.ipynb": {
+            "label": "shomate-integration",
+            "duedate": "2018-09-11 23:59:59",
+            "points": "2",
+            "category": "homework",
+            "grader": "Mingjie Liu"
         }
     },
     "solutions": [
