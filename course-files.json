@@ -42,6 +42,7 @@
         }
     },
     "solutions": [
+        "solutions/fun-1.ipynb",
         "solutions/introduction.ipynb"
     ],
     "announcements": "<div id=\"outline-container-org18bb118\" class=\"outline-2\">\n<h2 id=\"org18bb118\"><span class=\"section-number-2\">1</span> Announcements</h2>\n<div class=\"outline-text-2\" id=\"text-1\">\n<ul class=\"org-ul\">\n<li><span class=\"timestamp-wrapper\"><span class=\"timestamp\">[2018-09-06 Thu] </span></span> for the erf-fluids assignment, you should plot \\(v_x/U\\) as a function of the combined variable \\(z\\).</li>\n<li><span class=\"timestamp-wrapper\"><span class=\"timestamp\">[2018-09-06 Thu] </span></span> The TA office hours will be on Fridays from 2-3pm in DH1102.</li>\n<li><span class=\"timestamp-wrapper\"><span class=\"timestamp\">[2018-09-04 Tue] </span></span> A curated list of awesome scientific Python resources. <a href=\"https://github.com/rossant/awesome-scientific-python\">https://github.com/rossant/awesome-scientific-python</a></li>\n</ul>\n</div>\n</div>\n"
