@@ -63,7 +63,7 @@ np.zeros(3)
 
 #+RESULTS:
 :RESULTS:
-# Out[14]:
+# Out[8]:
 # text/plain
 : array([ 0.,  0.,  0.])
 :END:
@@ -77,7 +77,7 @@ x.shape
 
 #+RESULTS:
 :RESULTS:
-# Out[15]:
+# Out[9]:
 # text/plain
 : (50,)
 :END:
@@ -98,7 +98,7 @@ print(f'After the loop new_arr = {new_arr}')
 
 #+RESULTS:
 :RESULTS:
-# Out[18]:
+# Out[10]:
 # output
 : Before the loop new_arr = [ 0.  0.  0.  0.  0.]
 : The element at index 0 is 0.0
@@ -130,14 +130,14 @@ plt.xlim([x.min(), x.max()])
 
 #+RESULTS:
 :RESULTS:
-# Out[19]:
+# Out[11]:
 # text/plain
 : (0.0, 3.5)
 
 
 
 # image/png
-[[file:obipy-resources/744bcb3e58866fd0750c7a1efd9d42e8-1814ZY.png]]
+[[file:obipy-resources/744bcb3e58866fd0750c7a1efd9d42e8-68311qjJ.png]]
 :END:
 
 We should ask, how can we tell this is correct? We can confirm the initial values, which we know are correct.
@@ -148,7 +148,7 @@ x[0], y[0]
 
 #+RESULTS:
 :RESULTS:
-# Out[20]:
+# Out[12]:
 # text/plain
 : (0.0, 3.0)
 :END:
@@ -169,13 +169,13 @@ plt.legend()
 
 #+RESULTS:
 :RESULTS:
-# Out[27]:
+# Out[13]:
 
 
 
 
 # image/png
-[[file:obipy-resources/744bcb3e58866fd0750c7a1efd9d42e8-1814gM.png]]
+[[file:obipy-resources/744bcb3e58866fd0750c7a1efd9d42e8-683113tP.png]]
 :END:
 
 Here you see good agreement over most of the range. The end-points are always less accurate because the derivatives there are approximated by a less accurate formula. We interpret the sum of this evidence to mean our solution to the ODE is good over this range of x values.
@@ -203,6 +203,11 @@ a = 0
 b = 3
 #+END_SRC
 
+#+RESULTS:
+:RESULTS:
+# Out[14]:
+:END:
+
 Next, we will break the equation into two parts:
 
 $y(x) = term1 * term2$ where
@@ -221,6 +226,11 @@ def term1(x):
     return np.exp(-I1)
 #+END_SRC
 
+#+RESULTS:
+:RESULTS:
+# Out[15]:
+:END:
+
 term2 is a little trickier, as it has a partial integral inside an integral. We can define a function for this term also, but we have to define an internal function to use for the integral. The internal function will have an integral inside of it.
 
 #+BEGIN_SRC ipython
@@ -237,7 +247,7 @@ def term2(x):
 
 #+RESULTS:
 :RESULTS:
-# Out[41]:
+# Out[16]:
 :END:
 
 Now, to use it, we form the product of the two terms:
@@ -249,7 +259,7 @@ print(term1(x1) * term2(x1))
 
 #+RESULTS:
 :RESULTS:
-# Out[42]:
+# Out[17]:
 # output
 : 3.99127653383
 :
@@ -273,7 +283,7 @@ sol
 
 #+RESULTS:
 :RESULTS:
-# Out[43]:
+# Out[18]:
 # text/plain
 : 3.9912765338345242
 :END:
@@ -330,7 +340,7 @@ for n in range(0, len(x) - 1):
 
 #+RESULTS:
 :RESULTS:
-# Out[48]:
+# Out[19]:
 # output
 : h = 0.375
 :
@@ -350,13 +360,13 @@ plt.legend()
 
 #+RESULTS:
 :RESULTS:
-# Out[49]:
+# Out[20]:
 
 
 
 
 # image/png
-[[file:obipy-resources/744bcb3e58866fd0750c7a1efd9d42e8-1815hT.png]]
+[[file:obipy-resources/744bcb3e58866fd0750c7a1efd9d42e8-68311E4V.png]]
 :END:
 
 This solution does not look that good until you increase the number of points (i.e. decrease the value of $h$, significantly). It is known the error decreases only linearly with $h$.
@@ -390,7 +400,7 @@ for i in range(0, len(x) - 1):
 
 #+RESULTS:
 :RESULTS:
-# Out[58]:
+# Out[21]:
 # output
 : h = 0.375
 :
@@ -406,13 +416,13 @@ plt.legend()
 
 #+RESULTS:
 :RESULTS:
-# Out[60]:
+# Out[22]:
 
 
 
 
 # image/png
-[[file:obipy-resources/744bcb3e58866fd0750c7a1efd9d42e8-1816Uy.png]]
+[[file:obipy-resources/744bcb3e58866fd0750c7a1efd9d42e8-68311RCc.png]]
 :END:
 
 
@@ -439,7 +449,7 @@ from scipy.integrate import solve_ivp
 
 #+RESULTS:
 :RESULTS:
-# Out[6]:
+# Out[23]:
 :END:
 
 Here is a minimal use of the function, with keyword arguments.
@@ -454,7 +464,7 @@ sol = solve_ivp(fun=f, t_span=(x0, 1.5), y0=y0)
 
 #+RESULTS:
 :RESULTS:
-# Out[7]:
+# Out[24]:
 :END:
 
 The output of =solve_ip= is an object containing results in attributes on the object.
@@ -465,7 +475,7 @@ sol
 
 #+RESULTS:
 :RESULTS:
-# Out[8]:
+# Out[25]:
 # text/plain
 :   message: 'The solver successfully reached the interval end.'
 :      nfev: 20
@@ -487,7 +497,7 @@ sol.t
 
 #+RESULTS:
 :RESULTS:
-# Out[9]:
+# Out[26]:
 # text/plain
 : array([ 0.        ,  0.08034384,  0.86683456,  1.5       ])
 :END:
@@ -500,7 +510,7 @@ sol.y[0]
 
 #+RESULTS:
 :RESULTS:
-# Out[10]:
+# Out[27]:
 # text/plain
 : array([ 1.        ,  1.09011474,  3.13086569,  6.73191444])
 :END:
@@ -517,13 +527,13 @@ plt.legend()
 
 #+RESULTS:
 :RESULTS:
-# Out[11]:
+# Out[28]:
 
 
 
 
 # image/png
-[[file:obipy-resources/744bcb3e58866fd0750c7a1efd9d42e8-181r61.png]]
+[[file:obipy-resources/744bcb3e58866fd0750c7a1efd9d42e8-68311eMi.png]]
 :END:
 
 That doesn't looks so great since there are only four data points. By default, the algorithm only uses as many points as it needs to achieve a specified tolerance. We can specify that we want the solution evaluated at other points using the optional =t_eval= keyword arg.
@@ -536,7 +546,7 @@ sol
 
 #+RESULTS:
 :RESULTS:
-# Out[18]:
+# Out[30]:
 # text/plain
 :   message: 'The solver successfully reached the interval end.'
 :      nfev: 20
