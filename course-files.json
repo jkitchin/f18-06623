@@ -39,6 +39,13 @@
             "points": "2",
             "category": "homework",
             "grader": "Mingjie Liu"
+        },
+        "assignments/tank-draining.ipynb": {
+            "label": "tank-draining",
+            "duedate": "2018-09-13 23:59:59",
+            "points": "2",
+            "category": "homework",
+            "grader": "Mingjie Liu"
         }
     },
     "solutions": [
