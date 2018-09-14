@@ -14,6 +14,13 @@
         ""
     ],
     "assignments": {
+        "assignments/co2-vibrations.ipynb": {
+            "label": "co2-vibrations",
+            "duedate": "2018-09-20 23:59:59",
+            "points": "3",
+            "category": "homework",
+            "grader": "Noriyuki Yoshio"
+        },
         "assignments/erf-fluids.ipynb": {
             "label": "erf-fluids",
             "duedate": "2018-09-11 23:59:59",
