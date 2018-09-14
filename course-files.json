@@ -35,6 +35,13 @@
             "category": "homework",
             "grader": "John Kitchin"
         },
+        "assignments/heated-tank.ipynb": {
+            "label": "heated-tank",
+            "duedate": "2018-09-18 23:59:59",
+            "points": "2",
+            "category": "homework",
+            "grader": "Noriyuki Yoshio"
+        },
         "assignments/introduction.ipynb": {
             "label": "introduction",
             "duedate": "2018-08-31 23:59:59",
