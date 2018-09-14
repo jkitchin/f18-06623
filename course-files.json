@@ -35,6 +35,13 @@
             "category": "homework",
             "grader": "John Kitchin"
         },
+        "assignments/ode-nla-1.ipynb": {
+            "label": "ode-nla-1",
+            "duedate": "2018-09-18 23:59:59",
+            "points": "2",
+            "category": "homework",
+            "grader": "Noriyuki Yoshio"
+        },
         "assignments/shomate-integration.ipynb": {
             "label": "shomate-integration",
             "duedate": "2018-09-11 23:59:59",
