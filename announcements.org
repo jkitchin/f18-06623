@@ -1,16 +1,29 @@
 #+OPTIONS: toc:nil
 * Announcements
 
+- *Exam 1* will be held on [2018-09-24 Mon].
+  - The problems will be available around 8am on that day. I will send an email
+    when they have been assigned.
+  - I will collect the problems at 11:30am on that day.
+  - You can expect 3-4 problems.
+  - They should each take less than 30 minutes to complete if you have been
+    studying and can do the homeworks by yourself. In other words, you should be
+    able to finish the problems during the regularly scheduled class time.
+  - The problems will be like what I have done in class, and what you have done
+    in the homeworks.
+
 - [2018-09-11 Tue] In the tank-draining problem, the formula should be $\frac{dh}{dt} = - \frac{A_h}{A_w} \sqrt{2 g h}$. In the first version there was a mistake in the area ratios.
+
 - [2018-09-06 Thu] for the erf-fluids assignment, you should plot $v_x/U$ as a function of the combined variable $z$.
+
 - [2018-09-06 Thu] The TA office hours will be on Fridays from 2-3pm in DH1102.
+
 - [2018-09-04 Tue] A curated list of awesome scientific Python resources. https://github.com/rossant/awesome-scientific-python
 
 * build                                                            :noexport:
 #+OPTIONS: tex:dvipng
 
 #+BEGIN_SRC emacs-lisp
-
 (with-current-buffer (find-file-noselect (org-html-export-to-html nil nil t t))
   (goto-char (point-min))
   (while (re-search-forward "<img src=\"\\([^\"]*\\)\" alt=[^>]*/>" nil t)

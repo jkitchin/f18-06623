@@ -9,9 +9,9 @@ This page lists the days of class, and the topics we will probably cover on thos
 ** <2018-09-05 Wed 08:30> Numerical integration [[./lectures/integration-1.org]]
 ** <2018-09-10 Mon 08:30> First order ordinary differential equations [[./lectures/fode-1.org]]
 ** <2018-09-12 Wed 08:30> Systems of first-order differential equations [[./lectures/fode-2.org]]
-** <2018-09-17 Mon 08:30> Qualitative methods in ODEs
-** <2018-09-19 Wed 08:30>
-** <2018-09-24 Mon 08:30> BVPs
+** <2018-09-17 Mon 08:30> Nth order odes [[./lectures/nth-odes.org]]
+** <2018-09-19 Wed 08:30> Review  [[./lectures/review-1.org]]
+** <2018-09-24 Mon 08:30> Exam 1
 ** <2018-09-26 Wed 08:30> NO CLASS
 ** <2018-10-01 Mon 08:30>
 ** <2018-10-03 Wed 08:30>
