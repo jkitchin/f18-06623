@@ -11,7 +11,7 @@ Instructor: Prof. John Kitchin (jkitchin@andrew.cmu.edu) Doherty Hall A207F
 
 Teaching assistants:
 
-- Mingjie Liu :: mingie1@andrew.cmu.edu
+- Mingjie Liu :: mingjie1@andrew.cmu.edu
 - Noriyuki Yoshio :: nyoshio@andrew.cmu.edu
 
 We will not be using a textbook. The course notes will be provided for you, and supplementary materials as required.
