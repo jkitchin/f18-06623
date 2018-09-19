@@ -60,6 +60,13 @@
             "category": "homework",
             "grader": "Noriyuki Yoshio"
         },
+        "assignments/quiz-1.ipynb": {
+            "label": "quiz-1",
+            "duedate": "2018-09-19 10:19:59",
+            "points": "3",
+            "category": "quiz",
+            "grader": "John Kitchin"
+        },
         "assignments/shomate-integration.ipynb": {
             "label": "shomate-integration",
             "duedate": "2018-09-11 23:59:59",
