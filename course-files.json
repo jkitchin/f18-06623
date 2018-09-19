@@ -5,7 +5,8 @@
         "lectures/integration-1.ipynb",
         "lectures/intro.ipynb",
         "lectures/jupyter.ipynb",
-        "lectures/nth-odes.ipynb"
+        "lectures/nth-odes.ipynb",
+        "lectures/review-1.ipynb"
     ],
     "lecture_keywords": [
         "integration, quad, zeros, shape, enumerate, solve_ivp",
@@ -13,7 +14,8 @@
         "integration, trapz, cumtrapz, quad",
         "introduction",
         "",
-        "solve_ivp"
+        "solve_ivp",
+        "review, odes"
     ],
     "assignments": {
         "assignments/co2-vibrations.ipynb": {
