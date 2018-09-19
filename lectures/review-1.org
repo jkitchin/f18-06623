@@ -3,6 +3,19 @@
 #+OX-IPYNB-KEYWORD-METADATA: keywords
 #+KEYWORDS: review, odes
 
+* Me on Monday in class
+
+image:../assignments/i-love-questions.jpg
+
+* The sounds of all your questions since then
+
+#+BEGIN_SRC ipython :display text/html
+from IPython.display import HTML
+
+HTML('''<iframe width="786" height="442" src="https://www.youtube.com/embed/Yd0fBXwDBmo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>''')
+#+END_SRC
+
+
 * Summary of key concepts covered so far
 
 ** Numerical integration
@@ -34,35 +47,20 @@ including systems of first-order differential equations, and n^{th} order differ
 
 *** Stiff solvers
 
- Stiff ODEs are ones that have regions where the solution changes very fast, and regions where it changes very slow. The required step size for integration must be very small in the fast changing region, and this can make progress very slow in the slow moving regions. There are algorithms for dealing with stiff equations, and these are often studied in a numerical methods course. In this class, we take a more practical approach.
+ Stiff ODEs are ones that have regions where the solution changes very fast, and regions where it changes very slow. The required step size for integration must be very small in the fast changing region, and this can make progress very slow in the slow moving regions. There are algorithms for dealing with stiff equations, and these are often studied in a numerical methods course. In this class, we take a more practical approach. If the default settings of ~solve_ivp~ work, we use them. If they don't, and we are sure the equations are correct, we try another solver.
 
- The default solver in ~scipy.integrate.solve_ivp~ is the Runge-Kutta 4/5 algorithm. For the problems we have examined, it works fine, and it is unnecessary to improve on it until we look at problems where it does not work. When we do, all that is required is to change an argument to solve_ivp. You can change the solver with the optional ~method~ argument.
+The default solver in ~scipy.integrate.solve_ivp~ is the Runge-Kutta 4/5 algorithm. For the problems we have examined, it works fine, and it is unnecessary to improve on it until we look at problems where it does not work. When we do, all that is required is to change an argument to solve_ivp. You can change the solver with the optional ~method~ argument.
 
- You can see from the docstring they recommend a similar approach:
+You can see from the docstring they recommend a similar approach:
 
- #+BEGIN_VERBATIM
- method : string or OdeSolver, optional
- Integration method to use:
-
- - ‘RK45’ (default): Explicit Runge-Kutta method of order 5(4) [1]. The error is controlled assuming accuracy of the fourth-order method, but steps are taken using the fifth-order accurate formula (local extrapolation is done). A quartic interpolation polynomial is used for the dense output [2]. Can be applied in the complex domain.
-
- - ‘RK23’: Explicit Runge-Kutta method of order 3(2) [3]. The error is controlled assuming accuracy of the second-order method, but steps are taken using the third-order accurate formula (local extrapolation is done). A cubic Hermite polynomial is used for the dense output. Can be applied in the complex domain.
-
- - ‘Radau’: Implicit Runge-Kutta method of the Radau IIA family of order 5 [4]. The error is controlled with a third-order accurate embedded formula. A cubic polynomial which satisfies the collocation conditions is used for the dense output.
-
- - ‘BDF’: Implicit multi-step variable-order (1 to 5) method based on a backward differentiation formula for the derivative approximation [5]. The implementation follows the one described in [6]. A quasi-constant step scheme is used and accuracy is enhanced using the NDF modification. Can be applied in the complex domain.
-
- - ‘LSODA’: Adams/BDF method with automatic stiffness detection and switching [7], [8]. This is a wrapper of the Fortran solver from ODEPACK.
-
- You should use the ‘RK45’ or ‘RK23’ method for non-stiff problems and ‘Radau’ or ‘BDF’ for stiff problems [9].
-
- If not sure, first try to run ‘RK45’. If it needs unusually many iterations, diverges, or fails, your problem is likely to be stiff and you should use ‘Radau’ or ‘BDF’. ‘LSODA’ can also be a good universal choice, but it might be somewhat less convenient to work with as it wraps old Fortran code.
- #+END_VERBATIM
-
+#+BEGIN_SRC ipython
+import scipy
+?scipy.integrate.solve_ivp
+#+END_SRC
 
 *** Boundary value problems
 
- We have only considered initial value problems so far. Boundary value problems are those where conditions on the solution are provided at two or more different positions. The solutions to these problems inevitably require solutions to linear or nonlinear equations, and we have not learned how to solve these yet. When we do, we will return to these problems.
+ We have only considered initial value problems so far. Boundary value problems are those where conditions on the solution are provided at two or more different positions. Many methods to get solutions to these problems inevitably require solutions to linear or nonlinear equations, and we have not learned how to solve these yet. When we do, we will return to these problems.
 
 * What is yet to come?
 
@@ -76,7 +74,16 @@ When we pose a problem that requires a solution to minimize or maximize somethin
 
 ** Nonlinear parameter estimation / regression
 
-Model building, and estimation of the parameters in the models from experimental data is a core activity.
-
+Model building, and estimation of the parameters in the models from experimental data is a core activity. We will spend some time learning how to do this, especially with uncertainty estimates.
 
 ** Solving linear algebraic equations
+
+Many classes of engineering problems involve coupled linear equations. There are several methods for solving these that differ significantly from nonlinear equations that we will learn about. We will return to some classes of boundary value problems after this.
+
+** Bringing it all together with machine learning
+
+When you combine linear and nonlinear algebra with regression and optimization and data you get to what is called machine learning today.
+
+* Reminder
+
+Exam on <2018-09-24 Mon>

@@ -1,20 +1,21 @@
 #+OPTIONS: toc:nil
 * Announcements
 
+- [2018-09-26 Wed] Reminder *no class*!
+
 - *Exam 1* will be held on [2018-09-24 Mon].
-  - The problems will be available around 8am on that day. I will send an email
-    when they have been assigned.
-  - I will collect the problems at 11:30am on that day.
-  - You can expect 3-4 problems.
-  - They should each take less than 30 minutes to complete if you have been
-    studying and can do the homeworks by yourself. In other words, you should be
-    able to finish the problems during the regularly scheduled class time.
-  - The problems will be like what I have done in class, and what you have done
-    in the homeworks.
+  - The problems will be available by 8:00 am on that day. I will send an
+    email that morning when they have been assigned.
+  - This will be a 2 hour exam, on the honor system. You may start the exam any
+    time you want, but you should not take more than two hours to complete it,
+    and you must turn in your work after two hours. It is cheating to take more
+    than two hours without prior authorization.
+  - We will not have class on 9/24. I strongly recommend you take the exam
+    during the normal class time at a location of your choosing.
+  - All problems must be turned in at the latest 8:30pm on [2018-09-24 Mon].
+  - I will be in my office Monday morning until 10:20am, and then available
+    intermittently the rest of the day in my office or by email.
 
-- [2018-09-11 Tue] In the tank-draining problem, the formula should be $\frac{dh}{dt} = - \frac{A_h}{A_w} \sqrt{2 g h}$. In the first version there was a mistake in the area ratios.
-
-- [2018-09-06 Thu] for the erf-fluids assignment, you should plot $v_x/U$ as a function of the combined variable $z$.
 
 - [2018-09-06 Thu] The TA office hours will be on Fridays from 2-3pm in DH1102.
 
