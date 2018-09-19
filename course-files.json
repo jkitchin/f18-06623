@@ -85,7 +85,9 @@
     "solutions": [
         "solutions/erf-fluids.ipynb",
         "solutions/fun-1.ipynb",
+        "solutions/heated-tank.ipynb",
         "solutions/introduction.ipynb",
+        "solutions/ode-nla-1.ipynb",
         "solutions/shomate-integration.ipynb",
         "solutions/tank-draining.ipynb"
     ],
