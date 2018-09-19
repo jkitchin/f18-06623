@@ -1,0 +1,402 @@
+#+TITLE: N^{th} order differential equations
+#+AUTHOR: John Kitchin
+#+OX-IPYNB-KEYWORD-METADATA: keywords
+#+KEYWORDS: solve_ivp
+
+So far we have focused on computational solutions to first order differential equations, including systems of first order differential equations. The reason for that is simply that all numerical integration strategies only work with the first derivative.
+
+Many differential equations involve higher order derivatives though. We can solve these by converting them to systems of first-order differential equations through a series of variable changes.
+
+Let's consider the [[https://en.wikipedia.org/wiki/Van_der_Pol_oscillator][Van der Pol oscillator]].
+
+$\frac{d^2x}{dt^2} - \mu(1-x^2)\frac{dx}{dt} + x = 0$
+
+We define a new variable: $v = x'$, and then have $v' = x''$.
+
+That leads to a set of equivalent first-order differential equations:
+
+$x' = v$
+
+$v' - \mu (1-x^2)v + x = 0$
+
+You can still think of $x$ as the position of the oscillator, and $y$ as the velocity of the oscillator. Now, we can integrate these equations from some initial condition.
+
+Let's do this and plot the position and velocity of the oscillator. Rather than use ~t_eval~, we will instead set the optional argument ~max_step~ to tell the solver how often it should make a step.
+
+This is different than using ~t_eval~, which uses interpolation /after/ the solution has been found to evaluate the solution. This will become important later when we use events, which are only evaluated at the /solver/ points.
+
+#+BEGIN_SRC ipython
+import numpy as np
+from scipy.integrate import solve_ivp
+
+mu = 0.2
+
+def dXdt(t, X):
+    x, v = X
+    dxdt = v
+    dvdt = mu * (1 - x**2) * v - x
+    return np.array([dxdt, dvdt])
+
+X0 = np.array((1, 2)) # you can pick any x0, and v0 you want.
+tspan = np.array((0, 40))
+teval, h = np.linspace(*tspan, 500, retstep=True)
+
+sol = solve_ivp(dXdt, tspan, X0, max_step=h)
+sol.message, sol.success
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[229]:
+# text/plain
+: ('The solver successfully reached the end of the integration interval.', True)
+:END:
+
+Now, we can plot the solutions.
+
+#+BEGIN_SRC ipython
+%matplotlib inline
+import matplotlib.pyplot as plt
+
+plt.plot(sol.t, sol.y.T);
+plt.xlabel('t')
+plt.ylabel('x,v')
+plt.legend(['x', 'v'])
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[230]:
+
+
+
+
+# image/png
+[[file:obipy-resources/c515c00ecd6370edf5b32608ff70731e-388473FS.png]]
+:END:
+
+You can see that the solution appears oscillatory. Let's be more quantitative than what it /looks/ like. An alternative way to visualize this solution is called the phase portrait where we plot the two state variables (x, v) against each other. We include the starting point for visualization.
+
+#+BEGIN_SRC ipython
+plt.plot(*sol.y)
+plt.plot(*sol.y[:, 0], 'go') # starting point
+plt.xlabel('x')
+plt.ylabel('v')
+plt.axis('equal');
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[188]:
+
+
+# image/png
+[[file:obipy-resources/c515c00ecd6370edf5b32608ff70731e-38847p6E.png]]
+:END:
+
+So, evidently it is not exactly periodic in the beginning, but seems to take some time to settle down into a periodic rhythm. That seems to be the case, because if it didn't we would expect to see a continued spiral in or out of this limit cycle. Another way we can assess this quantitatively is to look at the peak positions in our solution. We return to an event type of solution. We seek an event where the derivative $dx/dt=0$, and it is a maximum, which means $x'$ starts positive, becomes zero, and then is negative. Note this is appropriate for this problem, where there is only one, periodic maximum. For other problems, you might need a different approach.
+
+Now, it is important to remember that the event function is only evaluated after a solver point, so we need to make sure the solver points bracket where events occur. This is accomplished by making sure that when we graph the solution from the solver (not from t_eval), that we can visually see where the events will occur.
+
+We use a new optional argument, ~dense_output=True~ in ~solve_ivp~ which will let us evaluate the solution at the event times.
+
+#+BEGIN_SRC ipython
+def max_x_event(t, X):
+    x, v = X
+    Xprime = dXdt(t, X)
+    return Xprime[0]  # first derivative = 0
+
+max_x_event.direction = -1 # event must go from positive to negative, i.e. a max
+
+sol = solve_ivp(dXdt, tspan, X0, max_step=h, events=max_x_event, dense_output=True)
+sol.t_events
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[189]:
+# text/plain
+: [array([  0.98712369,   7.29961546,  13.60207133,  19.90194032,
+:          26.2010961 ,  32.50005162,  38.79895061])]
+:END:
+
+You can see we found seven events. We need to evaluate the solution at these points, and we should plot them on the solution to see that they are in fact maxima. (what could possibly go wrong? if you get the wrong direction, then you will either see minima, or minima and maxima! If your event function is wrong, then it will just be wrong.) When you use ~dense_output=True~, you get a new attribute on the solution which can be used to estimate the solution at some t values. Note we get two rows in our solution, one for x and one for v. From the numbers here, you can see that the x_max values seem to be settling down to about 2.0.
+
+#+BEGIN_SRC ipython
+sol.sol(sol.t_events[0])
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[190]:
+# text/plain
+: array([[  2.07283325e+00,   2.02004874e+00,   2.00590349e+00,
+:           2.00196134e+00,   2.00085100e+00,   2.00053732e+00,
+:           2.00044864e+00],
+:        [  0.00000000e+00,   5.84601811e-16,   5.82867088e-16,
+:          -3.21270788e-15,   2.44249065e-15,  -4.48252546e-15,
+:           6.62664368e-15]])
+:END:
+
+
+#+BEGIN_SRC ipython
+plt.plot(sol.t, sol.y.T)
+
+# break up this calculation for ease of reading
+te = sol.t_events[0]
+xmax, v_at_xmax = sol.sol(te)
+plt.plot(te, xmax, 'ro')
+plt.plot(te, v_at_xmax, 'bo')
+
+# compare to. Don't do this, it is confusing and hard to figure out.
+plt.plot(sol.t_events[0], sol.sol(sol.t_events[0])[0], 'ro')
+
+plt.xlabel('t')
+plt.ylabel('x,v')
+plt.legend(['x', 'v'])
+
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[191]:
+
+
+
+
+# image/png
+[[file:obipy-resources/c515c00ecd6370edf5b32608ff70731e-388472EL.png]]
+:END:
+
+That looks good, the red dots appear at the maxima, and they are periodic, so now we can see how x_{max} varies with time.
+
+#+BEGIN_SRC ipython
+plt.plot(te, xmax, 'ro')
+plt.xlabel('t')
+plt.ylabel('$x_{max}$')
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[192]:
+
+
+
+
+# image/png
+[[file:obipy-resources/c515c00ecd6370edf5b32608ff70731e-38847DPR.png]]
+:END:
+
+You can see that after about 5 cycles, xmax is practically constant. We can also see that the period (the time between maxima) is converging to a constant. We cannot say much about what happens at longer times. You could integrate longer if it is important to know that. This is a limitation of numerical methods though. To /prove/ that it will be constant, you need to do some analytical math that would show the period and x_{max} go to a constant.
+
+#+BEGIN_SRC ipython
+plt.plot(np.diff(te), 'bo')
+plt.xlabel('cycle')
+plt.ylabel('period')
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[193]:
+
+
+
+
+# image/png
+[[file:obipy-resources/c515c00ecd6370edf5b32608ff70731e-38847QZX.png]]
+:END:
+
+If we seek the steady state, oscillatory behavior of this system, we should discard the solutions in at least the first 4 cycles, since the maxima and periods are still changing.
+
+#+BEGIN_SRC ipython
+te[-1]
+sol.sol(te[-1])
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[194]:
+# text/plain
+: array([  2.00044864e+00,   6.62664368e-15])
+:END:
+
+Alternatively, we can use the last point as an initial value for a new integration that should be close to steady state oscillations.
+
+#+BEGIN_SRC ipython
+tspan = (0, 40)
+X0 = sol.sol(te[-1])
+
+sol2 = solve_ivp(dXdt, tspan, X0, max_step=h, events=max_x_event)
+plt.plot(sol2.t, sol2.y.T)
+plt.xlabel('t')
+plt.ylabel('x,v')
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[195]:
+
+
+
+
+# image/png
+[[file:obipy-resources/c515c00ecd6370edf5b32608ff70731e-38847djd.png]]
+:END:
+
+Here you see about 6 more cycles. The period of these events is practically constant.
+
+#+BEGIN_SRC ipython
+sol2.t_events, np.diff(sol2.t_events[0])
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[196]:
+# text/plain
+: ([array([  3.31307575e-15,   6.29888301e+00,   1.25977615e+01,
+:            1.88966387e+01,   2.51955156e+01,   3.14943923e+01,
+:            3.77932690e+01])],
+:  array([ 6.29888301,  6.2988785 ,  6.29887721,  6.29887685,  6.29887676,
+:          6.29887672]))
+:END:
+
+And the limit cycle shows practically a single curve.
+
+#+BEGIN_SRC ipython
+plt.plot(*sol2.y)
+plt.xlabel('x')
+plt.ylabel('y')
+plt.axis('equal'); # makes x-ticks have the same dimension as y-ticks
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[197]:
+
+
+# image/png
+[[file:obipy-resources/c515c00ecd6370edf5b32608ff70731e-38847qtj.png]]
+:END:
+
+This limit cycle shows the oscillatory behavior. You can see here that each cycle repeats on top of itself.
+
+*Review* We have been working on finding a steady state oscillatory solution to $\frac{d^2x}{dt^2} - \mu(1-x^2)\frac{dx}{dt} + x = 0$, which describes an oscillating system. We examined some ways to tell if a system is oscillating, and to estimate the period of the oscillation.
+
+** Solving a parameterized ODE many times
+
+$\mu$ in the Van der Pol system is called a parameter. It is common to study the solution of this system as a function of \mu. For [[https://en.wikipedia.org/wiki/Van_der_Pol_oscillator#/media/File:VanderPol-lc.svg][example]], the oscillatory behavior changes a lot as \mu changes. Our aim here is to recreate the figure in that example, showing the steady state limit cycles as a function of \mu.
+
+The example we want to create has limit cycles for 10 different values of \mu. /We do not want to copy and paste code 10 times/. Instead, we should have some code we can /reuse 10 times/.
+
+Let's break this task down. For a given \mu, we should find a solution to the ODEs that shows constant periods. That means we should integrate over a time span, check the periods, and if they are not constant, integrate from the last point over the time span again. If they are consistent, then we can just plot the solution.
+
+How can we check the periods are constant? One way is to see if the first and last are the same within some tolerance, say 1e-3.
+
+Ideally, we would have a function that takes one argument, \mu, and returns the steady state oscillatory solution.
+
+#+BEGIN_SRC ipython
+# We do not have to define this here, I just repeat it so you can see it again.
+def max_x_event(t, X):
+    x, v = X
+    Xprime = dXdt(t, X)
+    return Xprime[0]  # first derivative = 0
+
+max_x_event.direction = -1 # event must go from positive to negative, i.e. a max
+
+
+def get_steady_state(mu):
+
+    # define the sys odes for this mu. We define it inside the function so it
+    # uses the mu passed in to get_steady_state.
+    def dXdt(t, X):
+        x, v = X
+        dxdt = v
+        dvdt = mu * (1 - x**2) * v - x
+        return np.array([dxdt, dvdt])
+
+
+    X0 = np.array([2, 0])  # start at x_max, velocity=0
+    tspan = np.array([0, 40]) # we assume we will get 4-6 periods this way
+    teval, h = np.linspace(*tspan, 1500, retstep=True)
+
+    # initial solution
+    sol = solve_ivp(dXdt, tspan, X0, max_step=h, events=max_x_event, dense_output=True)
+    periods = np.diff(sol.t_events[0])
+
+    # Now iterate as long as the first and last periods differ by more than the
+    # tolerance. It is usually a good idea to provide a way to break out in case
+    # it never ends. Here we use a max iteration count.
+    i = 0
+
+    # This assumes there are at least 2 periods in the tspan.
+    while np.abs(periods[0] - periods[-1]) > 1e-3:
+        last_step = sol.y[:, -1] # this is the new initial condition to continue from.
+        sol = solve_ivp(dXdt, tspan, last_step, max_step=h, events=max_x_event, dense_output=True)
+        # now get new periods.
+        periods = np.diff(sol.t_events[0])
+        i += 1
+        if i > 5: # if we exceed 5 iterations, something is probably wrong, so stop.
+            dp = np.abs(periods[0] - periods[-1])
+            print(dp, periods)
+            print(f'Max iterations exceeded and no stability for mu={mu}')
+            break
+    print(f'For mu={mu}, steady period after {i} iterations')
+
+    # Finally, return the last solution
+    return sol
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[226]:
+:END:
+
+
+#+BEGIN_SRC ipython
+MU = [0.01, 0.1, 0.5, 1, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0]
+MU.reverse()
+
+plt.figure(figsize=(3,6))
+for mu in MU:
+    sol = get_steady_state(mu)
+    plt.plot(*sol.y, lw=0.5, label=f'{mu:1.2f}')
+
+plt.legend(title='$\mu$',
+           loc='upper center',
+           # this line says put the legend outside the box.
+           # (0, 0) is the lower left, (1, 1) is the upper right
+           bbox_to_anchor=(1.2, 1))
+
+plt.axis('equal');
+#+END_SRC
+
+#+RESULTS:
+:RESULTS:
+# Out[234]:
+# output
+: For mu=4.0, steady period after 1 iterations
+: For mu=3.5, steady period after 1 iterations
+: For mu=3.0, steady period after 1 iterations
+: For mu=2.5, steady period after 1 iterations
+: For mu=2.0, steady period after 1 iterations
+: For mu=1.5, steady period after 1 iterations
+: For mu=1, steady period after 1 iterations
+: For mu=0.5, steady period after 1 iterations
+: For mu=0.1, steady period after 0 iterations
+: For mu=0.01, steady period after 0 iterations
+:
+
+
+# image/png
+[[file:obipy-resources/c515c00ecd6370edf5b32608ff70731e-38847ruq.png]]
+:END:
+
+* Summary
+
+Today we covered the conversion of an n^{th} order differential equation into a system of first order differential equations.
+
+We examined the use of the optional argument max_step to fine tune the solution points returned by the solver.
+
+This concludes our the first section on ordinary differential equations.
+
+On Wed, I will answer questions for about half of the class, and we will have a quiz on the second half of class. The quiz will be a single question, and will be representative of the exam next week.
