@@ -83,6 +83,7 @@
         }
     },
     "solutions": [
+        "solutions/co2-vibrations.ipynb",
         "solutions/erf-fluids.ipynb",
         "solutions/fun-1.ipynb",
         "solutions/heated-tank.ipynb",
