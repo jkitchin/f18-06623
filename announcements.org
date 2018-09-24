@@ -4,7 +4,7 @@
 - [2018-09-26 Wed] Reminder *no class*!
 
 - In exam1-1 the first formula should be $\frac{dL}{dt} = \frac{A_i h}{\rho_1 c_{p1} V_1}(C - L)$
--
+- In exam1-3, $d=0.2$.
 - *Exam 1* will be held on [2018-09-24 Mon].
   - The problems will be available by 8:00 am on that day. I will send an
     email that morning when they have been assigned.
