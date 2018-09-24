@@ -32,6 +32,34 @@
             "category": "homework",
             "grader": "Noriyuki Yoshio"
         },
+        "assignments/exam1-1.ipynb": {
+            "label": "exam1-1",
+            "duedate": "2018-09-24 20:29:59",
+            "points": "3",
+            "category": "exam-1",
+            "grader": "John Kitchin"
+        },
+        "assignments/exam1-2.ipynb": {
+            "label": "exam1-2",
+            "duedate": "2018-09-24 20:29:59",
+            "points": "2",
+            "category": "exam-1",
+            "grader": "John Kitchin"
+        },
+        "assignments/exam1-3.ipynb": {
+            "label": "exam1-3",
+            "duedate": "2018-09-24 17:50 20:29:59",
+            "points": "4",
+            "category": "exam-1",
+            "grader": "John Kitchin"
+        },
+        "assignments/exam1-4.ipynb": {
+            "label": "exam1-4",
+            "duedate": "2018-09-24 20:29:59",
+            "points": "2",
+            "category": "exam-1",
+            "grader": "John Kitchin"
+        },
         "assignments/fun-1.ipynb": {
             "label": "fun-1",
             "duedate": "2018-09-07 23:59:59",
