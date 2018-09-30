@@ -1,24 +1,6 @@
 #+OPTIONS: toc:nil
 * Announcements
 
-- [2018-09-26 Wed] Reminder *no class*!
-
-- In exam1-1 the first formula should be $\frac{dL}{dt} = \frac{A_i h}{\rho_1 c_{p1} V_1}(C - L)$
-- In exam1-3, $d=0.2$.
-- *Exam 1* will be held on [2018-09-24 Mon].
-  - The problems will be available by 8:00 am on that day. I will send an
-    email that morning when they have been assigned.
-  - This will be a 2 hour exam, on the honor system. You may start the exam any
-    time you want, but you should not take more than two hours to complete it,
-    and you must turn in your work after two hours. It is cheating to take more
-    than two hours without prior authorization.
-  - We will not have class on 9/24. I strongly recommend you take the exam
-    during the normal class time at a location of your choosing.
-  - All problems must be turned in at the latest 8:30pm on [2018-09-24 Mon].
-  - I will be in my office Monday morning until 10:20am, and then available
-    intermittently the rest of the day in my office or by email.
-
-
 - [2018-09-06 Thu] The TA office hours will be on Fridays from 2-3pm in DH1102.
 
 - [2018-09-04 Tue] A curated list of awesome scientific Python resources. https://github.com/rossant/awesome-scientific-python
