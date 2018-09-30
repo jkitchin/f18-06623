@@ -5,6 +5,7 @@
         "lectures/integration-1.ipynb",
         "lectures/intro.ipynb",
         "lectures/jupyter.ipynb",
+        "lectures/nla-1.ipynb",
         "lectures/nth-odes.ipynb",
         "lectures/review-1.ipynb"
     ],
@@ -14,6 +15,7 @@
         "integration, trapz, cumtrapz, quad",
         "introduction",
         "",
+        "scipy.optimize.fsolve, scipy.misc.derivative, list comprehension",
         "solve_ivp",
         "review, odes"
     ],
