@@ -13,8 +13,8 @@ This page lists the days of class, and the topics we will probably cover on thos
 ** <2018-09-19 Wed 08:30> Review  [[./lectures/review-1.org]]
 ** <2018-09-24 Mon 08:30> Exam 1
 ** <2018-09-26 Wed 08:30> NO CLASS
-** <2018-10-01 Mon 08:30>
-** <2018-10-03 Wed 08:30>
+** <2018-10-01 Mon 08:30> Nonlinear algebra [[./lectures/nla-1.org]]
+** <2018-10-03 Wed 08:30> Nonlinear algebra-2
 ** <2018-10-08 Mon 08:30>
 ** <2018-10-10 Wed 08:30>
 ** <2018-10-15 Mon 08:30>

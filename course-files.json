@@ -83,6 +83,27 @@
             "category": "homework",
             "grader": "John Kitchin"
         },
+        "assignments/nla-compressibility.ipynb": {
+            "label": "nla-compressibility",
+            "duedate": "2018-10-04 23:59:59",
+            "points": "3",
+            "category": "homework",
+            "grader": "Mingjie Liu"
+        },
+        "assignments/nla-pressure.ipynb": {
+            "label": "nla-pressure",
+            "duedate": "2018-10-02 23:59:59",
+            "points": "2",
+            "category": "homework",
+            "grader": "Mingjie Liu"
+        },
+        "assignments/nla-sys-1.ipynb": {
+            "label": "nla-sys-1",
+            "duedate": "2018-10-04 23:59:59",
+            "points": "3",
+            "category": "homework",
+            "grader": "Mingjie Liu"
+        },
         "assignments/ode-nla-1.ipynb": {
             "label": "ode-nla-1",
             "duedate": "2018-09-18 23:59:59",
