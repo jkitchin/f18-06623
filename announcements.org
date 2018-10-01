@@ -1,6 +1,8 @@
 #+OPTIONS: toc:nil
 * Announcements
 
+- [2018-10-01 Mon] in nla-compressibility the temperature of the gas is 450 K.
+-
 - [2018-09-06 Thu] The TA office hours will be on Fridays from 2-3pm in DH1102.
 
 - [2018-09-04 Tue] A curated list of awesome scientific Python resources. https://github.com/rossant/awesome-scientific-python
