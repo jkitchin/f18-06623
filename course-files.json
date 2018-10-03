@@ -1,5 +1,6 @@
 {
     "lectures": [
+        "lectures/08-nla-2.ipynb",
         "lectures/fode-1.ipynb",
         "lectures/fode-2.ipynb",
         "lectures/integration-1.ipynb",
@@ -10,6 +11,7 @@
         "lectures/review-1.ipynb"
     ],
     "lecture_keywords": [
+        "scipy.optimize.fsolve, numpy.roots, numpy.polyder, numpy.polyval, numpy.polyint, numpy.poly1d",
         "integration, quad, zeros, shape, enumerate, solve_ivp",
         "solve_ivp, meshgrid, quiver",
         "integration, trapz, cumtrapz, quad",
