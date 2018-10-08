@@ -24,9 +24,23 @@
         "review, odes"
     ],
     "assignments": {
+        "assignments/bvp-1.ipynb": {
+            "label": "bvp-1",
+            "duedate": "2018-10-09 23:59:59",
+            "points": "2",
+            "category": "homework",
+            "grader": "Noriyuki Yoshio"
+        },
         "assignments/co2-vibrations.ipynb": {
             "label": "co2-vibrations",
             "duedate": "2018-09-20 23:59:59",
+            "points": "3",
+            "category": "homework",
+            "grader": "Noriyuki Yoshio"
+        },
+        "assignments/coupled-transport-reaction.ipynb": {
+            "label": "coupled-transport-reaction",
+            "duedate": "2018-10-09 23:59:59",
             "points": "3",
             "category": "homework",
             "grader": "Noriyuki Yoshio"
