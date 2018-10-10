@@ -1,6 +1,8 @@
 #+OPTIONS: toc:nil
 * Announcements
 
+- [2018-10-09 Tue] Planned date for Exam 2: Oct 24, 2018.
+
 - [2018-10-08 Mon 10:38] Update on bvp-1. Here is a correction for bvp-1.
   The flow of an incompressible fluid between two solid plates and driven by a pressure drop is given by:
 
