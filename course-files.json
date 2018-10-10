@@ -15,7 +15,7 @@
     "lecture_keywords": [
         "scipy.optimize.fsolve, numpy.roots, numpy.polyder, numpy.polyval, numpy.polyint, numpy.poly1d",
         "scipy.integrate.solve_bvp, numpy.polyfit",
-        "scipy.optimize.fmin",
+        "scipy.optimize.minimize",
         "integration, quad, zeros, shape, enumerate, solve_ivp",
         "solve_ivp, meshgrid, quiver",
         "integration, trapz, cumtrapz, quad",
