@@ -153,6 +153,20 @@
             "points": "2",
             "category": "homework",
             "grader": "Mingjie Liu"
+        },
+        "assignments/tomato-height.ipynb": {
+            "label": "tomato-height",
+            "duedate": "2018-10-16 23:59:59",
+            "points": "2",
+            "category": "homework",
+            "grader": "Mingjie Liu"
+        },
+        "assignments/usps-cost.ipynb": {
+            "label": "usps-cost",
+            "duedate": "2018-10-16 23:59:59",
+            "points": "2",
+            "category": "homework",
+            "grader": "Mingjie Liu"
         }
     },
     "solutions": [
