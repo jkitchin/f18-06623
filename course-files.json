@@ -4,6 +4,7 @@
         "lectures/09-bvp.ipynb",
         "lectures/10-min-max.ipynb",
         "lectures/11-regression.ipynb",
+        "lectures/12-nonlinear-regression-2.ipynb",
         "lectures/fode-1.ipynb",
         "lectures/fode-2.ipynb",
         "lectures/integration-1.ipynb",
@@ -18,6 +19,7 @@
         "scipy.integrate.solve_bvp, numpy.polyfit",
         "scipy.optimize.minimize",
         "scipy.optimize.minimize, scipy.optimize.curve_fit, pycse.nlinfit, uncertainties",
+        "scipy.optimize.minimize",
         "integration, quad, zeros, shape, enumerate, solve_ivp",
         "solve_ivp, meshgrid, quiver",
         "integration, trapz, cumtrapz, quad",
@@ -171,6 +173,7 @@
     },
     "solutions": [
         "solutions/co2-vibrations.ipynb",
+        "solutions/coupled-transport-reaction.ipynb",
         "solutions/erf-fluids.ipynb",
         "solutions/exam1-1.ipynb",
         "solutions/exam1-2.ipynb",
