@@ -1,33 +1,33 @@
 {
     "lectures": [
+        "lectures/00-intro.ipynb",
+        "lectures/01-jupyter.ipynb",
+        "lectures/02-integration-1.ipynb",
+        "lectures/03-fode-1.ipynb",
+        "lectures/04-fode-2.ipynb",
+        "lectures/05-nth-odes.ipynb",
+        "lectures/06-review-1.ipynb",
+        "lectures/07-nla-1.ipynb",
         "lectures/08-nla-2.ipynb",
         "lectures/09-bvp.ipynb",
         "lectures/10-min-max.ipynb",
         "lectures/11-regression.ipynb",
-        "lectures/12-nonlinear-regression-2.ipynb",
-        "lectures/fode-1.ipynb",
-        "lectures/fode-2.ipynb",
-        "lectures/integration-1.ipynb",
-        "lectures/intro.ipynb",
-        "lectures/jupyter.ipynb",
-        "lectures/nla-1.ipynb",
-        "lectures/nth-odes.ipynb",
-        "lectures/review-1.ipynb"
+        "lectures/12-nonlinear-regression-2.ipynb"
     ],
     "lecture_keywords": [
+        "introduction",
+        "",
+        "integration, trapz, cumtrapz, quad",
+        "integration, quad, zeros, shape, enumerate, solve_ivp",
+        "solve_ivp, meshgrid, quiver",
+        "solve_ivp",
+        "review, odes",
+        "scipy.optimize.fsolve, scipy.misc.derivative, list comprehension",
         "scipy.optimize.fsolve, numpy.roots, numpy.polyder, numpy.polyval, numpy.polyint, numpy.poly1d",
         "scipy.integrate.solve_bvp, numpy.polyfit",
         "scipy.optimize.minimize",
         "scipy.optimize.minimize, scipy.optimize.curve_fit, pycse.nlinfit, uncertainties",
-        "scipy.optimize.minimize",
-        "integration, quad, zeros, shape, enumerate, solve_ivp",
-        "solve_ivp, meshgrid, quiver",
-        "integration, trapz, cumtrapz, quad",
-        "introduction",
-        "",
-        "scipy.optimize.fsolve, scipy.misc.derivative, list comprehension",
-        "solve_ivp",
-        "review, odes"
+        "scipy.optimize.minimize"
     ],
     "assignments": {
         "assignments/bvp-1.ipynb": {
