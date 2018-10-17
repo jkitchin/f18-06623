@@ -172,6 +172,7 @@
         }
     },
     "solutions": [
+        "solutions/bvp-1.ipynb",
         "solutions/co2-vibrations.ipynb",
         "solutions/coupled-transport-reaction.ipynb",
         "solutions/erf-fluids.ipynb",
