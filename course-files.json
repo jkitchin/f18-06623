@@ -146,7 +146,7 @@
         },
         "assignments/quiz-2.ipynb": {
             "label": "quiz-2",
-            "duedate": "2018-10-22 10:20 23:59:59",
+            "duedate": "2018-10-22 10:20:00",
             "points": "3",
             "category": "quiz",
             "grader": "John Kitchin"
