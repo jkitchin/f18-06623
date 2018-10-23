@@ -1,25 +1,8 @@
 #+OPTIONS: toc:nil
 * Announcements
 
+- [2018-10-23] The TA office hours will be Tuesdays 4:00pm-5:00pm at DH2101 starting from today.
 - [2018-10-09 Tue] Planned date for Exam 2: Oct 24, 2018.
-
-- [2018-10-08 Mon 10:38] Update on bvp-1. Here is a correction for bvp-1.
-  The flow of an incompressible fluid between two solid plates and driven by a pressure drop is given by:
-
-  $\frac{d^2 v}{dy^2} = \frac{\Delta P}{\mu L}$
-
-  where v(y) is the velocity in the flow direction (x) as a function of position
-  between the plates. The fluid is glycerol with a viscosity $\mu = 0.9$ Pa-s.,
-  the gap between the plates is 0.5 mm and the pressure drop $\frac{\Delta
-  P}{L}$ is 200 MPa / m. Calculate the velocity profile using solve_bvp for the
-  situation that (a) both plates are stationary and (b) for the situation that
-  the upper plate is stationary and the bottom plate is moving at 10 m/s in the
-  opposite direction as the pressure drop; plot these together on the same plot.
-
-- [2018-10-01 Mon] in nla-compressibility the temperature of the gas is 450 K.
-
-- [2018-09-06 Thu] The TA office hours will be on Fridays from 2-3pm in DH1102.
-
 - [2018-09-04 Tue] A curated list of awesome scientific Python resources. https://github.com/rossant/awesome-scientific-python
 
 * build                                                            :noexport:
