@@ -88,6 +88,34 @@
             "category": "exam-1",
             "grader": "John Kitchin"
         },
+        "assignments/exam2-1.ipynb": {
+            "label": "exam2-1",
+            "duedate": "2018-10-24 10:20:00",
+            "points": "4",
+            "category": "exam-2",
+            "grader": "John Kitchin"
+        },
+        "assignments/exam2-2.ipynb": {
+            "label": "exam2-2",
+            "duedate": "2018-10-24 10:20:00",
+            "points": "4",
+            "category": "exam-2",
+            "grader": "John Kitchin"
+        },
+        "assignments/exam2-3.ipynb": {
+            "label": "exam2-3",
+            "duedate": "2018-10-24 10:20:00",
+            "points": "3",
+            "category": "exam-2",
+            "grader": "John Kitchin"
+        },
+        "assignments/exam2-4.ipynb": {
+            "label": "exam2-4",
+            "duedate": "2018-10-24 10:20:00",
+            "points": "2",
+            "category": "exam-2",
+            "grader": "John Kitchin"
+        },
         "assignments/fun-1.ipynb": {
             "label": "fun-1",
             "duedate": "2018-09-07 23:59:59",
