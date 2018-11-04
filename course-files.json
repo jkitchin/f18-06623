@@ -13,7 +13,8 @@
         "lectures/10-min-max.ipynb",
         "lectures/11-regression.ipynb",
         "lectures/12-nonlinear-regression-2.ipynb",
-        "lectures/13-review.ipynb"
+        "lectures/13-review.ipynb",
+        "lectures/14-constrained-optimization.ipynb"
     ],
     "lecture_keywords": [
         "introduction",
@@ -29,7 +30,8 @@
         "scipy.optimize.minimize",
         "scipy.optimize.minimize, scipy.optimize.curve_fit, pycse.nlinfit, uncertainties",
         "scipy.optimize.minimize",
-        ""
+        "",
+        "scipy.optimize.minimize"
     ],
     "assignments": {
         "assignments/bvp-1.ipynb": {
