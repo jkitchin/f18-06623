@@ -253,6 +253,7 @@
         "solutions/shomate-integration.ipynb",
         "solutions/tank-draining.ipynb",
         "solutions/tomato-height.ipynb",
+        "solutions/universal-electric.ipynb",
         "solutions/usps-cost.ipynb"
     ],
     "announcements": "<div id=\"outline-container-org21945ac\" class=\"outline-2\">\n<h2 id=\"org21945ac\"><span class=\"section-number-2\">1</span> Announcements</h2>\n<div class=\"outline-text-2\" id=\"text-1\">\n<ul class=\"org-ul\">\n<li><span class=\"timestamp-wrapper\"><span class=\"timestamp\">[2018-10-23 Tue] </span></span> The TA office hours will be Tuesdays 4:00pm-5:00pm at DH2101 starting from today.</li>\n<li><span class=\"timestamp-wrapper\"><span class=\"timestamp\">[2018-10-09 Tue] </span></span> Planned date for Exam 2: Oct 24, 2018.</li>\n<li><span class=\"timestamp-wrapper\"><span class=\"timestamp\">[2018-09-04 Tue] </span></span> A curated list of awesome scientific Python resources. <a href=\"https://github.com/rossant/awesome-scientific-python\">https://github.com/rossant/awesome-scientific-python</a></li>\n</ul>\n</div>\n</div>\n"
