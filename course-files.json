@@ -15,7 +15,8 @@
         "lectures/12-nonlinear-regression-2.ipynb",
         "lectures/13-review.ipynb",
         "lectures/14-constrained-optimization.ipynb",
-        "lectures/15-intro-linear-algebra.ipynb"
+        "lectures/15-intro-linear-algebra.ipynb",
+        "lectures/16-linear-algebra.ipynb"
     ],
     "lecture_keywords": [
         "introduction",
@@ -33,7 +34,8 @@
         "scipy.optimize.minimize",
         "",
         "scipy.optimize.minimize",
-        "numpy.transpose, numpy.eye, numpy.diag, numpy.tri, @, numpy.transpose, numpy.allclose, numpy.linalg.det, numpy.linalg.inv, numpy.linalg.matrix_rank, numpy.linalg.cond, numpy.linalg.solve"
+        "numpy.transpose, numpy.eye, numpy.diag, numpy.tri, @, numpy.transpose, numpy.allclose, numpy.linalg.det, numpy.linalg.inv, numpy.linalg.matrix_rank, numpy.linalg.cond, numpy.linalg.solve",
+        "numpy.linalg.solve"
     ],
     "assignments": {
         "assignments/bvp-1.ipynb": {

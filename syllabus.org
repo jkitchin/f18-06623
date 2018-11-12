@@ -74,8 +74,8 @@ Each assignment will be in one of these categories. Your final grade will be det
 | homework |    0.2 |
 | quiz     |    0.2 |
 | exam1    |   0.12 |
-| exam2    |   0.23 |
-| exam3    |   0.25 |
+| exam2    |   0.00 |
+| exam3    |   0.48 |
 |----------+--------|
 | Total    |     1. |
 #+TBLFM: @7$2=vsum(@2..@6)
