@@ -143,6 +143,13 @@
             "category": "homework",
             "grader": "John Kitchin"
         },
+        "assignments/linear-bvp.ipynb": {
+            "label": "linear-bvp",
+            "duedate": "2018-11-20 23:59:59",
+            "points": "3",
+            "category": "homework",
+            "grader": "Mingjie Liu"
+        },
         "assignments/nla-compressibility.ipynb": {
             "label": "nla-compressibility",
             "duedate": "2018-10-04 23:59:59",
