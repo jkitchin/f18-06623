@@ -203,6 +203,13 @@
             "category": "quiz",
             "grader": "Noriyuki Yoshio"
         },
+        "assignments/quiz-4.ipynb": {
+            "label": "quiz-4",
+            "duedate": "2018-11-19 10:20:00",
+            "points": "3",
+            "category": "quiz",
+            "grader": "John Kitchin"
+        },
         "assignments/shomate-integration.ipynb": {
             "label": "shomate-integration",
             "duedate": "2018-09-11 23:59:59",
