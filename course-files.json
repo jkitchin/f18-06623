@@ -20,7 +20,8 @@
         "lectures/17-linear-algebra-2.ipynb",
         "lectures/18-linear-regression.ipynb",
         "lectures/19-introduction-to-autograd.ipynb",
-        "lectures/20-autograd-applications.ipynb"
+        "lectures/20-autograd-applications.ipynb",
+        "lectures/21-machine-learning.ipynb"
     ],
     "lecture_keywords": [
         "introduction",
@@ -43,9 +44,17 @@
         "numpy.linalg.solve, scipy.interpolate.interp1d, numpy.linalg.eigvals, numpy.linalg.eig, numpy.argsort",
         "numpy.linalg.solve",
         "autograd",
+        "autograd",
         "autograd"
     ],
     "assignments": {
+        "assignments/ag-gibbs-duhem.ipynb": {
+            "label": "ag-gibbs-duhem",
+            "duedate": "2018-12-07 23:59:59",
+            "points": "2",
+            "category": "homework",
+            "grader": "Noriyuki Yoshio"
+        },
         "assignments/bvp-1.ipynb": {
             "label": "bvp-1",
             "duedate": "2018-10-09 23:59:59",
@@ -178,6 +187,13 @@
             "points": "3",
             "category": "homework",
             "grader": "Mingjie Liu"
+        },
+        "assignments/nn-pvap.ipynb": {
+            "label": "nn-pvap",
+            "duedate": "2018-12-07 23:59:59",
+            "points": "3",
+            "category": "homework",
+            "grader": "Noriyuki Yoshio"
         },
         "assignments/ode-nla-1.ipynb": {
             "label": "ode-nla-1",
