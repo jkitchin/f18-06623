@@ -21,7 +21,8 @@
         "lectures/18-linear-regression.ipynb",
         "lectures/19-introduction-to-autograd.ipynb",
         "lectures/20-autograd-applications.ipynb",
-        "lectures/21-machine-learning.ipynb"
+        "lectures/21-machine-learning.ipynb",
+        "lectures/22-final-review.ipynb"
     ],
     "lecture_keywords": [
         "introduction",
@@ -45,7 +46,8 @@
         "numpy.linalg.solve",
         "autograd",
         "autograd",
-        "autograd"
+        "autograd",
+        ""
     ],
     "assignments": {
         "assignments/ag-gibbs-duhem.ipynb": {
@@ -289,6 +291,7 @@
         "solutions/fun-1.ipynb",
         "solutions/heated-tank.ipynb",
         "solutions/introduction.ipynb",
+        "solutions/linear-bvp.ipynb",
         "solutions/nla-compressibility.ipynb",
         "solutions/nla-pressure.ipynb",
         "solutions/nla-sys-1.ipynb",
