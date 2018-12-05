@@ -239,6 +239,13 @@
             "category": "quiz",
             "grader": "John Kitchin"
         },
+        "assignments/quiz-6.ipynb": {
+            "label": "quiz-6",
+            "duedate": "2018-12-05 10:20:00",
+            "points": "2",
+            "category": "quiz",
+            "grader": "John Kitchin"
+        },
         "assignments/shomate-integration.ipynb": {
             "label": "shomate-integration",
             "duedate": "2018-09-11 23:59:59",
