@@ -283,6 +283,7 @@
         }
     },
     "solutions": [
+        "solutions/ag-gibbs-duhem.ipynb",
         "solutions/bvp-1.ipynb",
         "solutions/co2-vibrations.ipynb",
         "solutions/coupled-transport-reaction.ipynb",
@@ -302,6 +303,7 @@
         "solutions/nla-compressibility.ipynb",
         "solutions/nla-pressure.ipynb",
         "solutions/nla-sys-1.ipynb",
+        "solutions/nn-pvap.ipynb",
         "solutions/ode-nla-1.ipynb",
         "solutions/quiz-1.ipynb",
         "solutions/quiz-2.ipynb",
