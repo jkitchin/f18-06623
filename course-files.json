@@ -221,7 +221,7 @@
         "assignments/quiz-3.ipynb": {
             "label": "quiz-3",
             "duedate": "2018-11-07 10:20:00",
-            "points": "2",
+            "points": "0",
             "category": "quiz",
             "grader": "Noriyuki Yoshio"
         },
