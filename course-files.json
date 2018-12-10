@@ -141,6 +141,48 @@
             "category": "exam-2",
             "grader": "John Kitchin"
         },
+        "assignments/exam3-1.ipynb": {
+            "label": "exam3-1",
+            "duedate": "2018-12-10 16:00:00",
+            "points": "2",
+            "category": "exam-3",
+            "grader": "Noriyuki Yoshio"
+        },
+        "assignments/exam3-2.ipynb": {
+            "label": "exam3-2",
+            "duedate": "2018-12-10 16:00:00",
+            "points": "3",
+            "category": "exam-3",
+            "grader": "Mingjie Liu"
+        },
+        "assignments/exam3-3.ipynb": {
+            "label": "exam3-3",
+            "duedate": "2018-12-10 23:59:59",
+            "points": "3",
+            "category": "exam-3",
+            "grader": "John Kitchin"
+        },
+        "assignments/exam3-4.ipynb": {
+            "label": "exam3-4",
+            "duedate": "2018-12-10 16:00:00",
+            "points": "2",
+            "category": "exam-3",
+            "grader": "Noriyuki Yoshio"
+        },
+        "assignments/exam3-5.ipynb": {
+            "label": "exam3-5",
+            "duedate": "2018-12-10 16:00:00",
+            "points": "3",
+            "category": "exam-3",
+            "grader": "John Kitchin"
+        },
+        "assignments/exam3-6.ipynb": {
+            "label": "exam3-6",
+            "duedate": "2018-12-10 16:00:00",
+            "points": "2",
+            "category": "exam-3",
+            "grader": "Mingjie Liu"
+        },
         "assignments/fun-1.ipynb": {
             "label": "fun-1",
             "duedate": "2018-09-07 23:59:59",
